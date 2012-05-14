@@ -1,0 +1,630 @@
+/* 
+Theme Name: Popshop
+Theme URI: http://getpopshop.com
+Description: One-page social commerce pop-up shop theme for Wordpress
+Author: Syzygy Lab
+Author URI: http://getpopshop.com
+Version: 1.0
+Tags: custom-background, custom-colors, custom-header, theme-options
+
+Copyright: (c) 2012 Syzygy
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+
+/* CLEARFIX MICRO HACK */
+/* @see http://nicolasgallagher.com/micro-clearfix-hack/ */
+.cf:before,
+.cf:after {
+content:"";
+display:table;
+}
+.cf:after {
+clear:both;
+}
+.cf {
+zoom:1;
+}
+
+
+/* SUPERSIZED PLUGIN */
+* {margin:0;padding:0}
+html.supersized, body.supersized {height:100%; width:100%;}
+#supersized-loader {}
+
+#supersized {  display:block; position:fixed; left:0; top:0; overflow:hidden; z-index:-999; height:100%; width:100%; }
+    #supersized img { width:auto; height:auto; position:relative; display:none; outline:none; border:none; }
+        #supersized.speed img { -ms-interpolation-mode:nearest-neighbor; image-rendering: -moz-crisp-edges; }   /*Speed*/
+        #supersized.quality img { -ms-interpolation-mode:bicubic; image-rendering: optimizeQuality; }           /*Quality*/
+    
+    #supersized li { display:block; list-style:none; z-index:-30; position:fixed; overflow:hidden; top:0; left:0; width:100%; height:100%; background:#111; }
+    #supersized a { width:100%; height:100%; display:block; }
+        #supersized li.prevslide { z-index:-20; }
+        #supersized li.activeslide { z-index:-10; }
+        #supersized li.image-loading {}
+            #supersized li.image-loading img{ visibility:hidden; }
+        #supersized li.prevslide img, #supersized li.activeslide img{ display:inline; }
+
+
+/* MISC HELPERS */
+.hide {
+display:none;
+}
+
+
+/* Overlay raster effect */
+/* @see  http://nanotux.com/plugins/fullscreenr/index.html  and  http://themes.themolitor.com/wpnovelist/ */
+#mesh {
+height:100%;
+width:100%;
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+.mesh1 {
+background:url('images/raster1.png') repeat;
+}
+.mesh2 {
+background:url('images/raster2.png') repeat;
+}
+
+
+.title {
+float:left;
+}
+
+.social {
+float:right;
+margin-top:14px;
+height:25px;
+}
+
+.social > div {
+display:inline-block;
+float:left;
+width:84px;
+font-size:1px;
+height:25px;
+}
+
+div.likefix {
+width:95px;
+}
+
+div.tweetfix {
+width:95px;
+}
+
+div.linkedinfix {
+width:100px;
+}
+
+p {
+margin-bottom:6px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Popshop Timeline-inspired theme
+/*-----------------------------------------------------------------------------------*/
+
+body {
+background-color:#E7EBF2;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+line-height:1.28;
+color:#333333;
+}
+
+.fbTimelineSection {
+background:#fff;
+border:1px solid #c4cde0;
+border-bottom-width:2px;
+border-radius:3px;
+padding:20px;
+}
+
+h1 {
+color:#1C2A47;
+font-size:20px;
+}
+
+h2 {
+color:gray;
+font-weight:normal;
+font-size:11px;
+}
+
+a {
+color:#3B5998;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration:underline;
+}
+
+#cover {
+margin-top:8px;
+height:318px;
+}
+
+#fbTimelineHeadline {
+min-height:60px;
+position:relative;
+}
+
+.profilePicThumb{background:rgba(0, 0, 0, .3);border-radius:3px;box-shadow:0 1px 1px rgba(0, 0, 0, .07);display:block;left:23px;padding:1px;position:absolute}
+.profilePicThumb{margin-top:-107px} /* Actually, it's profilePicThumbLarge */
+a.profilePicThumb:hover{border-color:#3b5998}
+.profilePicThumb .img{margin:0;display:block}
+.profilePic{background-color:#fff;border:4px solid #fff;border-radius:2px;height:160px;width:160px}
+
+.scaledImageFitWidth {
+height:auto;
+width:100%;
+}
+
+.uiScaledImageContainer {
+overflow:hidden;
+position:relative;
+}
+
+.coverBorder{border:1px solid #000;border-color:rgba(0, 0, 0, .25);border-top-color:rgba(0, 0, 0, .1);bottom:0;left:0;position:absolute;right:0;top:0}
+
+/* Facebook-style buttons */
+
+.uiButton .uiButtonText,.uiButton input {background:none;border:0;cursor:pointer;display:-moz-inline-box;display:inline-block;font-family:'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size: 11px;font-weight:bold;margin:0;padding:1px 0 2px;white-space:nowrap}
+
+.uiButton {background-color:#eee;border:1px solid #999;border-bottom-color:#888;box-shadow:0 1px 0 rgba(0, 0, 0, .1);cursor:pointer;display:-moz-inline-box;display:inline-block;font-size: 11px;font-weight:bold;line-height:13px;padding:2px 6px;text-align:center;text-decoration:none;vertical-align:top;white-space:nowrap}
+
+.uiButtonLarge, .uiButtonLarge .uiButtonText {
+font-size:13px;
+color:#FFFFFF;
+line-height:16px;
+}
+
+.uiButtonSpecial {
+background-color: #69A74E;
+border-color: #3B6E22 #3B6E22 #2C5115;
+/* Recreate Facebook's background image with CSS gradients */
+background: -moz-linear-gradient(top, rgba(152,194,134,1) 1px, rgba(117,174,92,1) 1px, rgba(103,165,72,1) 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(top, rgba(152,194,134,1) 1px, rgba(117,174,92,1) 1px, rgba(103,165,72,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(152,194,134,1) 1px, rgba(117,174,92,1) 1px, rgba(103,165,72,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(152,194,134,1) 1px, rgba(117,174,92,1) 1px, rgba(103,165,72,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(152,194,134,1) 1px, rgba(117,174,92,1) 1px, rgba(103,165,72,1) 100%); /* W3C */
+}
+
+.uiButton {
+/* Custom button size */
+padding:4px 18px;
+}
+
+.callToAction {
+float:right;
+margin-left:20px;
+margin-top:2px;
+}
+
+.callToActionWrapper {
+border:1px solid #E5E7EB;
+border-radius:2px;
+background-color:#F1F3F8;
+padding:15px 20px;
+margin-top:28px;
+}
+
+.callToActionText {
+font-size:15px;
+}
+
+.navmenu {
+float:right;
+margin-top:16px;
+}
+
+.navmenu, .navmenu a {
+color:#6D84B4;
+}
+
+ul.navmenu {
+list-style-type:none;
+}
+
+.navmenu li {
+display:inline;
+}
+
+.navmenu li:after {
+content:" · ";
+color:#999;
+}
+
+.navmenu li:last-child:after {
+content:"";
+}
+
+a.popshop-link {
+color:#999;
+text-transform:uppercase;
+}
+
+/* Media (View-gate) */
+
+#cover.covervideo {
+position:relative;
+}
+
+.covervideo #media-container {
+margin:auto;
+width:378px;
+}
+
+.covervideo #media {
+position:absolute;
+bottom:10px;
+}
+
+.covervideo div.moviebg {
+max-width:810px;
+max-height:315px;
+overflow:hidden;
+}
+
+/* Timeline "spine", and very basic styling for blog posts and pages */
+
+.morecontent {
+padding:5px 15px;
+margin-top:20px;
+margin-left:1px;
+border-left:3px #C3CCDF solid;
+line-height:1.5em;
+}
+
+.blog_post, .page {
+position:relative;
+margin-bottom:25px;
+}
+
+.fbspinedot {
+background:url('images/fbspinedot.png') no-repeat;
+width:5px;
+height:9px;
+position:absolute;
+left:-19px;
+top:5px;
+}
+
+.morecontent h2 {
+color:#3B5998;
+font-weight:bold;
+font-size:13px;
+}
+
+.morecontent .date {
+color:gray;
+margin-top:-1px;
+margin-bottom:4px;
+}
+
+/* Order Form & Thank you Form */
+
+.formpage {
+margin-top:30px;
+background-color:#EDEFF4;
+padding:10px 20px;
+line-height:1.5em;
+}
+
+.formpage h2 {
+color:#1C2A47;
+font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.formpage h3 {
+text-transform:uppercase;
+font-weight:normal;
+font-size:11px;
+margin-bottom:6px;
+}
+
+div.delete {
+background:url('images/delete.png') no-repeat;
+width:15px;
+height:15px;
+float:right;
+}
+
+div.delete:hover {
+background-position:0 -32px;
+}
+
+div.delete:active {
+background-position:0 -48px;
+}
+
+.order-column {
+width:345px;
+float:left;
+}
+
+.order-column:first-child {
+margin-right:80px;
+}
+
+.itemsummary {
+margin-bottom:20px;
+}
+
+.itemsummary-inner {
+background-color:#FFFFFF;
+border:1px solid #C4CDE0;
+border-radius:2px;
+padding:10px 15px;
+font-size:15px;
+}
+
+.productname-label {
+text-transform:uppercase;
+}
+
+.price-label {
+text-transform:uppercase;
+float:right;
+margin-right:10px;
+}
+
+span.price {
+float:right;
+font-weight:bold;
+}
+
+#orderform .callToAction {
+margin-top:15px;
+}
+
+
+/* Form elements, adapted from Twitter Bootstrap v2.0.2 */
+/* @todo: Import the whole form.less */
+
+button,
+input { /* From Bootstrap's reset.less */
+line-height:normal;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* From Bootstrap's reset.less */
+padding:0;
+border:0;
+}
+input,
+button,
+select,
+textarea { /* 605 */
+margin:0;
+vertical-align:middle;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+}
+label { /* 611 */
+display: block;
+line-height:18px;
+}
+input, textarea, select, .uneditable-input { /* 616 */
+border: 1px solid #D8D8D8;
+/*border-radius: 2px;*/
+color: #555555;
+display: inline-block;
+height: 16px;
+line-height: 16px;
+margin-bottom: 6px;
+padding: 4px;
+width:250px;
+}
+label input,
+label textarea,
+label select { /* 637 */
+display: block;
+}
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] { /* 642 */
+width: auto;
+height: auto;
+padding: 0;
+margin: 3px 0;
+*margin-top: 0;
+/* IE7 */
+line-height: normal;
+cursor: pointer;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+border: 0 \9;
+/* IE9 and down */
+}
+.radio, .checkbox { /* 713 */
+padding-left: 18px;
+}
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] { /* 717 */
+float: left;
+margin-left: -18px;
+}
+input, textarea { /* 737 */
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+input:focus, textarea:focus { /* 748 */
+border-color:#97A4C2;
+outline: 0;
+outline: thin dotted \9;
+/* IE6-9 */
+}
+:-moz-placeholder { /* 960 */
+color: #999999;
+}
+::-webkit-input-placeholder { /* 963 */
+color: #999999;
+}
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Responsive design
+/*-----------------------------------------------------------------------------------*/
+
+
+/* Container, Standard case: */
+
+#container {
+overflow:hidden;
+width:810px;
+margin:auto;
+margin-top:120px;
+margin-bottom:50px;
+}
+
+/* Specifics when on Facebook */
+body.facebook {
+background-color:#FFFFFF;
+}
+
+body.facebook #container {
+margin-top:0 !important;
+margin-bottom:0 !important;
+}
+
+/* "Vertical responsive design" */
+@media (max-height: 950px) {
+    #container {
+    margin-top:50px;
+    }
+}
+@media (max-height: 820px) {
+    #container {
+    margin-top:25px;
+    margin-bottom:15px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 860px) {
+    body.off-facebook #container {
+    width:85%;
+    margin-top:10px;
+    }
+    
+    body.off-facebook .social {
+    height:auto;
+    }
+    
+    body.off-facebook input {
+    max-width:200px;
+    }
+    
+    body.off-facebook .order-column {
+    width:auto;
+    max-width:345px;
+    }
+}
+
+@media (max-width: 500px) {
+    body.off-facebook .profilePicThumb{margin-top:-150px}
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* External libraries
+/*-----------------------------------------------------------------------------------*/
+
+/*
+ * jQuery FlexSlider v1.8
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+/* @Popshop: as our slides container has a fixed height, we could actually remove that. */
+/* @Popshop: override responsiveness, so it doesn't break our UI too much when on small screens: */
+/*.flexslider .slides img {max-width: 100%; display: block;}*/
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {/*background: #fff; border: 4px solid #fff;*/ position: relative; -webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; zoom: 1;}
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;}
+
+/* Caption style */
+/* IE rgba() hack */
+.flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
+.flex-caption {width: 96%; padding: 2%; margin: 0; position: absolute; left: 0; top: 0; background: rgba(0,0,0,.3); color: #fff; /*text-shadow: 0 -1px 0 rgba(0,0,0,.3);*/ font-size: 14px; line-height: 18px;}
+/* @Popshop: */
+.flex-caption {text-align:center;}
+/* @Popshop: */
+.flex-caption.light-caption { background: rgba(255, 255, 255, 0.85); color:#333; border-top: 1px solid rgba(59, 89, 153, 0.45); }
+
+/* Direction Nav */
+/* @Popshop: Adapted from http://www.woothemes.com/flexslider/flexslider-demo/ */
+.flex-direction-nav {*height: 0; padding: 0;} /*fix for IE 7 */
+.flex-direction-nav li a {width: 26px; height: 26px; margin: -13px 0 0; display: block; background: url(images/bg_direction_nav.png) no-repeat; position: absolute; top: 50%; cursor: pointer; text-indent: -999em; opacity: 0.0; filter:alpha(opacity=0); }
+.flexslider:hover .flex-direction-nav li a {opacity: 0.8; filter:alpha(opacity=80);}
+.flex-direction-nav li a:hover  { opacity: 1 !important; filter:alpha(opacity=100) !important; }
+.flex-direction-nav li .next {background-position: -30px 0; right: 8px;}
+.flex-direction-nav li .prev {left: 8px;}
+.flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: 20px; text-align: center;}
+.flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-nav li:first-child {margin: 0;}
+
+/*.flex-control-nav li a {width: 13px; height: 13px; display: block; background: url(images/bg_control_nav.png) no-repeat; cursor: pointer; text-indent: -999em;}
+.flex-control-nav li a:hover {background-position: 0 -13px;}
+.flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}*/
+/* Slides 2 Beta: */
+.flex-control-nav li a {width: 14px; height: 14px; display: block; background: url(images/pagination.png) no-repeat; cursor: pointer; text-indent: -999em;}
+.flex-control-nav li a.active {background-position: 0 -14px; cursor: default;}
+/* @todo: Also try Obox Social Commerce (more Facebook-like) */
+
+/* @Popshop: "crop" slider images if they're larger than what we want: */
+.flexslider .slides > li { height:315px; overflow:hidden; }
