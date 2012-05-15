@@ -5,10 +5,6 @@ require_once (TEMPLATEPATH . '/extlib/wp_adpress_paypal.php');
 require_once (TEMPLATEPATH . '/extlib/detectmobilebrowser.php');
 require_once (TEMPLATEPATH . '/schema.php');
 
-// @fixme: Temporarily disabled:
-// if (is_admin()) {
-//     require_once (TEMPLATEPATH . '/extlib/update_notifier.php');
-// }
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -70,7 +66,7 @@ add_action('admin_enqueue_scripts', 'popshop_admin_scripts');
 
 function popshop_admin_styles($hook) {
     // Load CSS selectively, only on Popshop admin pages:
-    if (strpos($hook, "popshop") !== false) {
+    if (popshop_admin_page($hook)) {
         wp_enqueue_style('popshop_admin', get_template_directory_uri() . '/admin/css/admin.css');
     }
 }
@@ -115,6 +111,37 @@ function popshop_activation() {
             // @see http://wordpress.stackexchange.com/questions/44625/in-the-wordpress-admin-how-can-i-find-out-which-page-themes-php-widgets-php
             
             
+            // CREATE DUMMY CONTENT
+            if (!get_page_by_path('about')) {
+                wp_insert_post(array('post_title' => 'About',
+                                     'post_content' => "It's just mind-blowingly awesome. I apologize, and I wish I was more articulate, but it's hard to be articulate when your mind's blown - but in a very good way.",
+                                     'post_name' => 'about',
+                                     'post_status' => 'publish',
+                                     'post_type' => 'page'));
+            }
+            if (!get_page_by_path('contact')) {
+                wp_insert_post(array('post_title' => 'Contact',
+                                     'post_content' => "I saw for the first time the earth's shape. I could easily see the shores of continents, islands, great rivers, folds of the terrain, large bodies of water. The horizon is dark blue, smoothly turning to black... the feelings which filled me I can express with one word - joy.",
+                                     'post_name' => 'contact',
+                                     'post_status' => 'publish',
+                                     'post_type' => 'page'));
+            }
+            if (!get_page_by_path('blog')) {
+                wp_insert_post(array('post_title' => 'Blog',
+                                     'post_content' => "",
+                                     'post_name' => 'blog',
+                                     'post_status' => 'publish',
+                                     'post_type' => 'page'));
+            }
+            if (!get_page_by_path('terms')) {
+                wp_insert_post(array('post_title' => 'Terms and Conditions',
+                                     'post_content' => "Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.",
+                                     'post_name' => 'terms',
+                                     'post_status' => 'publish',
+                                     'post_type' => 'page'));
+            }
+            
+            
             // CREATE NAVIGATION MENU
             // @see http://wordpress.stackexchange.com/questions/44736/programmatically-add-a-navigation-menu-and-menu-items
             // @todo: Check and, as suggested, document.
@@ -151,18 +178,16 @@ function popshop_activation() {
                 wp_set_object_terms($nav_item, 'footer-nav', 'nav_menu');
             }
             
-            // @todo: Create Terms page
             
             // SCHEDULE POPSHOP CRON
             
             if (!wp_next_scheduled('popshop_daily_cron')) {
                 wp_schedule_event(current_time('timestamp'), 'daily', 'popshop_daily_cron');
             }
+            
+            // CHECK SCHEMA
+            popshop_check_schema();
         }
-        
-        // CHECK SCHEMA
-        // @todo: Move that into "activation hook"?
-        popshop_check_schema();
     }
 }
 add_action('admin_head', 'popshop_activation');
@@ -286,6 +311,14 @@ function of_sanitize_textarea_custom($input) {
 /* Admin Pages
 /*-----------------------------------------------------------------------------------*/
 
+
+function popshop_admin_page($screen_id)
+{
+    return (strpos($screen_id, 'popshop') !== false);
+    // Yes, that's a bit hackish...
+}
+
+
 function build_popshop_dashboard_page()
 {
     include(TEMPLATEPATH . '/admin/templates/top.php');
@@ -346,8 +379,7 @@ add_filter('contextual_help', 'popshop_contextual_help', 10, 3);
 
 function popshop_contextual_help($contextual_help, $screen_id, $screen)
 {
-    if (strpos($screen_id, 'popshop') !== false) {
-        // Yes, that's a bit hackish...
+    if (popshop_admin_page($screen_id)) {
         if (method_exists($screen, 'add_help_tab')) {
             // WordPress 3.3
             
@@ -522,79 +554,6 @@ function popshop_get_page_link_by_slug($slug)
 }
 
 
-function popshop_paypal_args($paypal_url, $order)
-{
-    $gateway = array(
-        'username' => popshop_get_option('paypal_username'),
-        'password' => popshop_get_option('paypal_password'),
-        'signature' => popshop_get_option('paypal_signature'),
-        'version' => '84.0',
-        'payment_action' => 'Sale',
-        'payment_amount' => popshop_get_option('paypal_amount'),
-        'currency' => popshop_get_option('paypal_currency'),
-        'return_url' => $paypal_url."?paypal=process&order=".$order,
-        'cancel_url' => $paypal_url."?paypal=cancel"
-    );
-    
-    return $gateway;
-}
-
-
-function popshop_paypal_link($paypal_url, $order)
-{
-    // @see https://gist.github.com/1496282
-    
-    $gateway = popshop_paypal_args($paypal_url, $order);
-    
-    // Create a new instance of the class
-    $paypal = new wp_adpress_paypal($gateway, true);
-    
-    // Get the redirect URL
-    $redirect_url = $paypal->doExpressCheckout();
-    
-    // @see SetExpressCheckout method
-    
-    // Note: we target="_top" this link so that it can work on Facebook.
-    return $redirect_url;
-}
-
-
-define('PAYPAL_SUCCESS', 1);
-define('PAYPAL_FAILURE', 2);
-
-
-
-function popshop_paypal_process()
-{
-    // @return PAYPAL_SUCCESS, PAYPAL_FAILURE, or false
-    // Static caching, so this we can call this function multiple times.
-    static $res;
-    if (isset($res)) {
-        return $res;
-    }
-    
-    if (isset($_GET['paypal']) && ($_GET['paypal'] == "process")) {
-        
-        if (isset($_GET['token']) && isset($_GET['PayerID'])) {
-            // Try and process the payment
-            $gateway = popshop_paypal_args();
-            $paypal = new wp_adpress_paypal($gateway, true);
-            $payment = $paypal->processPayment($_GET['token'], $_GET['PayerID']);
-            if ($payment) {
-                $res = PAYPAL_SUCCESS;
-                return $res;
-            }
-            else {
-                $res = PAYPAL_FAILURE;
-                return $res;
-            }
-        }
-    }
-    $res = false;
-    return $res;
-}
-
-add_action('init', 'popshop_paypal_process');
 
 
 function popshop_get_navmenu()
@@ -739,8 +698,9 @@ function popshop_stats_report()
 }
 
 
+
 /*-----------------------------------------------------------------------------------*/
-/* Misc (WIP)
+/* Misc 
 /*-----------------------------------------------------------------------------------*/
 
 // Disable admin bar completely
@@ -749,4 +709,80 @@ show_admin_bar(false);
 
 
 
+/*-----------------------------------------------------------------------------------*/
+/* PayPal Integration (WIP) 
+/*-----------------------------------------------------------------------------------*/
 
+function popshop_paypal_args($paypal_url, $order)
+{
+    $gateway = array(
+        'username' => popshop_get_option('paypal_username'),
+        'password' => popshop_get_option('paypal_password'),
+        'signature' => popshop_get_option('paypal_signature'),
+        'version' => '84.0',
+        'payment_action' => 'Sale',
+        'payment_amount' => popshop_get_option('paypal_amount'),
+        'currency' => popshop_get_option('paypal_currency'),
+        'return_url' => $paypal_url."?paypal=process&order=".$order,
+        'cancel_url' => $paypal_url."?paypal=cancel"
+    );
+    
+    return $gateway;
+}
+
+
+function popshop_paypal_link($paypal_url, $order)
+{
+    // @see https://gist.github.com/1496282
+    
+    $gateway = popshop_paypal_args($paypal_url, $order);
+    
+    // Create a new instance of the class
+    $paypal = new wp_adpress_paypal($gateway, true);
+    
+    // Get the redirect URL
+    $redirect_url = $paypal->doExpressCheckout();
+    
+    // @see SetExpressCheckout method
+    
+    // Note: we target="_top" this link so that it can work on Facebook.
+    return $redirect_url;
+}
+
+
+define('PAYPAL_SUCCESS', 1);
+define('PAYPAL_FAILURE', 2);
+
+
+
+function popshop_paypal_process()
+{
+    // @return PAYPAL_SUCCESS, PAYPAL_FAILURE, or false
+    // Static caching, so this we can call this function multiple times.
+    static $res;
+    if (isset($res)) {
+        return $res;
+    }
+    
+    if (isset($_GET['paypal']) && ($_GET['paypal'] == "process")) {
+        
+        if (isset($_GET['token']) && isset($_GET['PayerID'])) {
+            // Try and process the payment
+            $gateway = popshop_paypal_args();
+            $paypal = new wp_adpress_paypal($gateway, true);
+            $payment = $paypal->processPayment($_GET['token'], $_GET['PayerID']);
+            if ($payment) {
+                $res = PAYPAL_SUCCESS;
+                return $res;
+            }
+            else {
+                $res = PAYPAL_FAILURE;
+                return $res;
+            }
+        }
+    }
+    $res = false;
+    return $res;
+}
+
+add_action('init', 'popshop_paypal_process');
