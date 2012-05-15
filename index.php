@@ -60,7 +60,7 @@ if (!popshop_on_facebook()) {
                 <?php endif; ?>
             </div>
             <div id="media-container">
-                <div id="media">
+                <div id="media" class="<?php echo popshop_get_option('covervideo_position') ?>">
                     <?php echo popshop_get_video_embed("cover") ?>
                 </div>
             </div>

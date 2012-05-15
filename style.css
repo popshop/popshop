@@ -267,6 +267,11 @@ position:absolute;
 bottom:10px;
 }
 
+.covervideo #media.right {
+bottom:77px;
+left:314px;
+}
+
 .covervideo div.moviebg {
 max-width:810px;
 max-height:315px;

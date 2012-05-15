@@ -284,18 +284,24 @@ function optionsframework_options() {
     
     
     
+    $options[] = array("name" => "Video Position",
+                       "desc" => "Choose where you want to position the video - in the centre, or offset to centre-right (balanced with logo). The CSS element for this is <code>.covervideo #media</code>.",
+                       "id" => "covervideo_position",
+                       "std" => "right",
+                       "type" => "radio",
+                       "options" => array("center"  => "Centre", 
+                                          "right"   => "Centre-Right"));
     
-    $options[] = array("name" => "Your Cover Video's Youtube ID",
-                       "desc" => "Paste here your video ID from Youtube.",
-                       "id" => "covervideo_id",
-                       "std" => "5Giw8rKT4Dg",
-                       "type" => "text");
-    
-    $options[] = array("name" => "Cover Video Background image",
-                       "desc" => "Add a background image to your Cover video - Default is a theater stage (810x315px).",
+    $options[] = array("name" => "Video Background image",
+                       "desc" => 'Add video background image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "covervideo_image",
                        "type" => "upload");
     
+    $options[] = array("name" => "Youtube Video ID",
+                       "desc" => "Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.",
+                       "id" => "covervideo_id",
+                       "std" => "5Giw8rKT4Dg",
+                       "type" => "text");
     
     
     /* New Tab */
