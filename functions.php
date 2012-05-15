@@ -146,37 +146,36 @@ function popshop_activation() {
             // @see http://wordpress.stackexchange.com/questions/44736/programmatically-add-a-navigation-menu-and-menu-items
             // @todo: Check and, as suggested, document.
             
-            if (!term_exists('footer-nav', 'nav_menu')) {
-                $menu_name = "popshop-menu";
+            $menu_name = "popshop-menu";
+            
+            if (!wp_get_nav_menu_object($menu_name)) {
                 
-                $menu = wp_insert_term('Footer nav', 'nav_menu', array('slug' => 'footer-nav'));
+                $menu_id = wp_create_nav_menu($menu_name);
+                
+                wp_update_nav_menu_item($menu_id, 0, array('menu-item-title' => 'About',
+                                                           'menu-item-object' => 'page',
+                                                           'menu-item-object-id' => get_page_by_path('about')->ID,
+                                                           'menu-item-type' => 'post_type',
+                                                           'menu-item-status' => 'publish'));
+                wp_update_nav_menu_item($menu_id, 0, array('menu-item-title' => 'Contact',
+                                                           'menu-item-object' => 'page',
+                                                           'menu-item-object-id' => get_page_by_path('contact')->ID,
+                                                           'menu-item-type' => 'post_type',
+                                                           'menu-item-status' => 'publish'));
+                wp_update_nav_menu_item($menu_id, 0, array('menu-item-title' => 'Blog',
+                                                           'menu-item-object' => 'page',
+                                                           'menu-item-object-id' => get_page_by_path('blog')->ID,
+                                                           'menu-item-type' => 'post_type',
+                                                           'menu-item-status' => 'publish'));
                 
                 // Select this menu in the current theme
-                update_option('theme_mods_'.get_current_theme(), array("nav_menu_locations" => array($menu_name => $menu['term_id'])));
-                
-                $page = wp_insert_post(array('post_title' => 'Blog',
-                                             'post_content' => '',
-                                             'post_status' => 'publish',
-                                             'post_type' => 'page'));
-                
-                $nav_item = wp_insert_post(array('post_title' => 'News',
-                                                 'post_content' => '',
-                                                 'post_status' => 'publish',
-                                                 'post_type' => 'nav_menu_item'));
-                
-                
-                add_post_meta($nav_item, '_menu_item_type', 'post_type');
-                add_post_meta($nav_item, '_menu_item_menu_item_parent', '0');
-                add_post_meta($nav_item, '_menu_item_object_id', $page);
-                add_post_meta($nav_item, '_menu_item_object', 'page');
-                add_post_meta($nav_item, '_menu_item_target', '');
-                add_post_meta($nav_item, '_menu_item_classes', 'a:1:{i:0;s:0:"";}');
-                add_post_meta($nav_item, '_menu_item_xfn', '');
-                add_post_meta($nav_item, '_menu_item_url', '');
-                
-                
-                wp_set_object_terms($nav_item, 'footer-nav', 'nav_menu');
+                if (!has_nav_menu($menu_name)) {
+                    $locations = get_theme_mod('nav_menu_locations');
+                    $locations[$menu_name] = $menu_id;
+                    set_theme_mod('nav_menu_locations', $locations);
+                }
             }
+            
             
             
             // SCHEDULE POPSHOP CRON
@@ -191,6 +190,7 @@ function popshop_activation() {
     }
 }
 add_action('admin_head', 'popshop_activation');
+
 
 
 // HOOK POPSHOP CRON
