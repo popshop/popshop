@@ -1,5 +1,7 @@
 # Popshop, a WordPress Theme for Social Commerce
 
+![screenshot.png](https://github.com/popshop/popshop/raw/master/screenshot.png?v=1)
+
 * [http://getpopshop.com](http://getpopshop.com)
 * [http://github.com/popshop/popshop](http://github.com/popshop/popshop) on Github
 * [@getpopshop](http://twitter.com/getpopshop) on Twitter
