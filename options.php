@@ -233,7 +233,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #1",
-                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "slider_image_1",
                        "type" => "upload");
     
@@ -243,7 +243,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #2",
-                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "slider_image_2",
                        "type" => "upload");
     
@@ -253,7 +253,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #3",
-                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "slider_image_3",
                        "type" => "upload");
     
@@ -263,7 +263,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #4",
-                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "slider_image_4",
                        "type" => "upload");
     
@@ -273,7 +273,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #5",
-                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "slider_image_5",
                        "type" => "upload");
     
@@ -293,7 +293,7 @@ function optionsframework_options() {
                                           "right"   => "Centre-Right"));
     
     $options[] = array("name" => "Video Background image",
-                       "desc" => 'Add video background image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
+                       "desc" => 'Add video background image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "covervideo_image",
                        "type" => "upload");
     
