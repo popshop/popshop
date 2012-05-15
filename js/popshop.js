@@ -61,7 +61,7 @@ jQuery(document).ready(function($){
             
             $.supersized({
                 // slide_interval: 3000, transition: 'fade', transition_speed: 1000,
-                slides : [{image: $("#background_image").text() }]
+                slides : [{ image: $("#background_image").text() }]
             });
             
             // Resize mesh to cover the whole page even if browser does not support position:fixed (iOS).
@@ -87,12 +87,17 @@ jQuery(document).ready(function($){
         else {
             $.get($(this).attr("href"), function(data){
                 $("#morecontent").show();
-                $("#morecontent").html(data);
+                $("#morecontent-inner").html(data);
             });
             // Set this link to "active"
             $(".navmenu li.menu-item a").removeClass("active");
             $(this).addClass("active");
         }
+    });
+    
+    $("#morecontent div.delete").click(function(){
+        $("#morecontent").hide();
+        $(".navmenu li.menu-item a").removeClass("active");
     });
     
     $(".popshop-fb-share").click(function(event){
@@ -126,7 +131,7 @@ jQuery(document).ready(function($){
         else {
             $.get($(this).attr("href"), function(data){
                 $("#morecontent").show();
-                $("#morecontent").html(data);
+                $("#morecontent-inner").html(data);
             });
             // Set this link to "active"
             $(this).addClass("active");
@@ -136,7 +141,7 @@ jQuery(document).ready(function($){
     
     $(".flexslider").flexslider({ animation:      $("#slider_animation").text(),
                                   slideshowSpeed: $("#slider_animation_speed").text()
-                                });
+    });
     
     
     
@@ -148,7 +153,7 @@ jQuery(document).ready(function($){
         if (Popshop.payment_type == "share" && !Popshop.shared) {
             // Share Gate activated and user has not shared yet.
             $("#morecontent").show();
-            $("#morecontent").html('You need to share this page first! Please use one of the Share buttons above.');
+            $("#morecontent-inner").html('You need to share this page first! Please use one of the Share buttons above.');
             return;
         }
         $("#morecontent").hide();

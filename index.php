@@ -108,6 +108,8 @@ if (!popshop_on_facebook()) {
     </div>
     
     <div id="morecontent" class="morecontent" style="display:none;">
+        <div class="delete"></div>
+        <div id="morecontent-inner" class="morecontent-inner"></div>
     </div>
     
     <div class="callToActionWrapper cf" id="main-callToActionWrapper">
