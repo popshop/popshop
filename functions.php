@@ -654,11 +654,9 @@ function popshop_save_hit()
 
 function popshop_stats_report()
 {
+    // If we're not the current selected theme, this code should never be executed.
+    // (@todo: Check that)
     
-    // If we're not the current selected theme, don't do anything. (This shouldn't happen, though).
-    if (strtolower(get_current_theme()) != 'popshop') {
-        return;
-    }
     // If we're on localhost or a IP-only host (probably for testing), don't do anything:
     $host = parse_url(home_url(), PHP_URL_HOST);
     if ((strpos($host, "localhost") !== false) || (trim($host, ".0123456789") == "")) {
