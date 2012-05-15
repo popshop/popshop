@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 <style>
-<?php echo popshop_get_custom_css() ?>
 <?php if(popshop_get_option('custom_css')): ?>
     <?php echo popshop_get_option('custom_css'); ?>
 <?php endif; ?>

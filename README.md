@@ -19,7 +19,7 @@ Installing to Facebook as a **Page Tab application** is a bit more complex, plea
 Popshop is licensed under GPL. Feel free to improve and contribute on Github!
 
 ## TODO
-* Wrap up PayPal integration (work has already started)
+* Wrap up and test PayPal integration (work has already started)
 
 ## Contributors
 * Julien Chaumond [@julien_c](http://twitter.com/julien_c)

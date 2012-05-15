@@ -1,10 +1,8 @@
 <?php 
 
-require_once (TEMPLATEPATH . '/extlib/lessc.inc.php');
-require_once (TEMPLATEPATH . '/extlib/wp_adpress_paypal.php');
+
 require_once (TEMPLATEPATH . '/extlib/detectmobilebrowser.php');
 require_once (TEMPLATEPATH . '/schema.php');
-
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -93,7 +91,7 @@ define('OPTIONS_FRAMEWORK_ADMIN_PAGE', 'popshop_page_popshop-settings');
 
 function register_popshop_menus() {
     
-    register_nav_menus(array('popshop-menu' => __('Footer navigation menu')));
+    register_nav_menus(array('popshop-menu' => __('Popshop navigation menu')));
 }
 add_action('init', 'register_popshop_menus');
 
@@ -531,6 +529,10 @@ function popshop_get_video_embed($which)
 
 function popshop_get_custom_css()
 {
+    // Custom CSS from LESS file and Popshop options. 
+    // This is not used right now, but it could be one day.
+    require_once (TEMPLATEPATH . '/extlib/lessc.inc.php');
+    
     // @see http://leafo.net/lessphp/docs/#setting_variables_from_php
     
     $less = new lessc(TEMPLATEPATH."/options.less");
@@ -732,6 +734,8 @@ function popshop_paypal_link($paypal_url, $order)
 {
     // @see https://gist.github.com/1496282
     
+    require_once (TEMPLATEPATH . '/extlib/wp_adpress_paypal.php');
+    
     $gateway = popshop_paypal_args($paypal_url, $order);
     
     // Create a new instance of the class
@@ -764,6 +768,9 @@ function popshop_paypal_process()
     if (isset($_GET['paypal']) && ($_GET['paypal'] == "process")) {
         
         if (isset($_GET['token']) && isset($_GET['PayerID'])) {
+            
+            require_once (TEMPLATEPATH . '/extlib/wp_adpress_paypal.php');
+            
             // Try and process the payment
             $gateway = popshop_paypal_args();
             $paypal = new wp_adpress_paypal($gateway, true);
