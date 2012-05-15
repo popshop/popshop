@@ -155,17 +155,14 @@ jQuery(document).ready(function($){
             case "file":
                 $("#section-file_to_download").show();
                 $("#section-video_id").hide();
-                $("#section-external_url").hide();
                 break;
             case "video":
                 $("#section-file_to_download").hide();
                 $("#section-video_id").show();
-                $("#section-external_url").hide();
                 break;
             case "physical":
                 $("#section-file_to_download").hide();
                 $("#section-video_id").hide();
-                $("#section-external_url").hide();
                 $("#of-option-orderformfields-tab").show();
                 $("#of-option-orderformfields-tab").text('Addressee Fields');
                 break;
