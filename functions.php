@@ -555,7 +555,6 @@ function popshop_get_page_link_by_slug($slug)
 
 
 
-
 function popshop_get_navmenu()
 {
     $args = array('theme_location' => 'popshop-menu',
@@ -655,7 +654,7 @@ function popshop_save_hit()
 function popshop_stats_report()
 {
     // If we're not the current selected theme, this code should never be executed.
-    // (@todo: Check that)
+    // @todo: Check that.
     
     // If we're on localhost or a IP-only host (probably for testing), don't do anything:
     $host = parse_url(home_url(), PHP_URL_HOST);
