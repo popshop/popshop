@@ -134,7 +134,9 @@ jQuery(document).ready(function($){
     });
     
     
-    $(".flexslider").flexslider({animation: $("#slider_animation").text()});
+    $(".flexslider").flexslider({ animation:      $("#slider_animation").text(),
+                                  slideshowSpeed: $("#slider_animation_speed").text()
+                                });
     
     
     

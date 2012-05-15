@@ -77,7 +77,7 @@ if (!popshop_on_facebook()) {
                         <li>
                             <img src="<?php echo $slide['image'] ?>" />
                             <?php if($slide['caption']): ?>
-                                <p class="flex-caption <?php echo popshop_get_option('slider_caption_style') ?>"><?php echo $slide['caption'] ?></p>
+                                <p class="flex-caption <?php echo popshop_get_option('slider_caption_style') ?> <?php echo popshop_get_option('slider_caption_position') ?>"><?php echo $slide['caption'] ?></p>
                             <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
@@ -147,9 +147,11 @@ if (!popshop_on_facebook()) {
                         <label class="checkbox">
                             <input type="checkbox" name="terms" required> Accept <a class="linktoterms" href="<?php echo popshop_get_page_link_by_slug('terms') ?>">Terms and Conditions</a>
                         </label>
-                        <label class="checkbox">
-                            <input type="checkbox" name="optin"> Sign me up to receive news, exclusives and offers.
-                        </label>
+                        <?php if(popshop_get_option('optin')): ?>
+                            <label class="checkbox">
+                                <input type="checkbox" name="optin"> <?php echo popshop_get_option('optin_text') ?>
+                            </label>
+                        <?php endif; ?>
                     <?php endif; ?>
                     
                     <div class="callToAction">

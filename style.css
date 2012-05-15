@@ -597,11 +597,12 @@ html[xmlns] .slides {display: block;}
 /* IE rgba() hack */
 .flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
-.flex-caption {width: 96%; padding: 2%; margin: 0; position: absolute; left: 0; top: 0; background: rgba(0,0,0,.3); color: #fff; /*text-shadow: 0 -1px 0 rgba(0,0,0,.3);*/ font-size: 14px; line-height: 18px;}
+.flex-caption {width: 96%; padding: 2%; margin: 0; position: absolute; left: 0; top: 0; background: rgba(0,0,0,.5); color: #fff; /*text-shadow: 0 -1px 0 rgba(0,0,0,.3);*/ font-size: 14px; line-height: 18px;}
 /* @Popshop: */
 .flex-caption {text-align:center;}
 /* @Popshop: */
-.flex-caption.light-caption { background: rgba(255, 255, 255, 0.85); color:#333; border-top: 1px solid rgba(59, 89, 153, 0.45); }
+.flex-caption.light-caption { background: rgba(255, 255, 255, 0.60); color:#333; border-top: 1px solid rgba(59, 89, 153, 0.45); }
+.flex-caption.right { width:265px; top:15px; right:15px; left: auto; }
 
 /* Direction Nav */
 /* @Popshop: Adapted from http://www.woothemes.com/flexslider/flexslider-demo/ */

@@ -39,16 +39,14 @@ function optionsframework_options() {
     $options[] = array("desc" => popshop_gettingstarted_page(),
 					   "type" => "info");
     
-    $options[] = array("name" => "Product Type",
-                       "id" => "product_type",
+    $options[] = array("name" => "Shop Type",
+                       "id" => "shop_type",
                        "class" => "hidden",
                        "std" => '',
                        "type" => "radio",
-                       "options" => array('file'     => 'file', 
-                                          'video'    => 'video',
-                                          'physical' => 'physical',
-                                          'link'     => 'link',
-                                          ''         => 'Not selected yet'));
+                       "options" => array('sell'    => 'sell', 
+                                          'link'    => 'link',
+                                          ''        => 'Not selected yet'));
     
     $options[] = array("name" => "Payment Type",
                        "id" => "payment_type",
@@ -60,6 +58,18 @@ function optionsframework_options() {
                                           'contact' => 'contact',
                                           'paypal'  => 'paypal',
                                           ''        => 'Not selected yet'));
+    
+    $options[] = array("name" => "Product Type",
+                       "id" => "product_type",
+                       "class" => "hidden",
+                       "std" => '',
+                       "type" => "radio",
+                       "options" => array('file'     => 'file', 
+                                          'video'    => 'video',
+                                          'physical' => 'physical',
+                                          ''         => 'Not selected yet'));
+    
+    
     
     // This is just to pass to the JS a reference to this very page's URL:
     $options[] = array("desc" => '<div id="popshop_settings_url">'.admin_url('admin.php?page=popshop-settings').'</div>',
@@ -73,104 +83,143 @@ function optionsframework_options() {
     $options[] = array("name" => "Basic Settings",
                        "type" => "heading");
     
-    $options[] = array("name" => "Header",
-                       "desc" => "Your Popshop's Header.",
+    $options[] = array("name" => "Popshop Header",
+                       "desc" => "Enter the name of your Popshop here.",
                        "id" => "header",
-                       "std" => "Your product or service",
+                       "std" => "My fabulous pop-up event",
                        "type" => "text");
     
-    $options[] = array("name" => "Sub-Header",
-                       "desc" => "Your Sub-Header.",
+    $options[] = array("name" => "Popshop Sub-Header",
+                       "desc" => "Enter the Sub-Header, such as a description of your Popshop here.",
                        "id" => "subheader",
-                       "std" => "Popup Shop",
+                       "std" => "Exclusive offer for Fans",
                        "type" => "text");
     
-    $options[] = array("name" => "Logo",
-                       "desc" => "Your logo image (160x160px recommended).",
+    $options[] = array("name" => "Popshop Logo",
+                       "desc" => "Your brand or product logo (160x160px recommended).",
                        "id" => "logo",
                        "type" => "upload");
     
-    $options[] = array("name" => "Product or service name",
-                       "desc" => "Your product or service's name.",
+    
+    $options[] = array("name" => "Popshop Callout Box Text",
+                       "desc" => "Enter your call to action here.",
+                       "id" => "main_cta_text",
+                       "std" => "Get our fantastic new product here, limited offer!",
+                       "type" => "textarea");
+    
+    $options[] = array("name" => "Popshop Callout Box Button Text",
+                       "desc" => "Enter the button text for the callout box.",
+                       "id" => "main_cta_button",
+                       "std" => "Get This Offer",
+                       "type" => "text");
+    
+    $options[] = array("name" => "Product Summary",
+                       "desc" => "Enter short summary of the product being ordered. This will appear as the line item on the order form.",
                        "id" => "product_name",
-                       "std" => "Your product name",
+                       "std" => "One amazing product",
+                       "type" => "text");
+    
+    $options[] = array("name" => 'Product Summary Free Offer "Price"',
+                       "desc" => 'Enter the "free" offer price to go next to the product summary on the order form. For example "free for a share", "free for a contact", or just "free"',
+                       "id" => "price",
+                       "std" => "FREE",
+                       "type" => "text");
+    
+    $options[] = array("name" => "Product Description",
+                       "desc" => "Enter product description and offer details including eligibility, shipping and return details here.",
+                       "id" => "offer_details",
+                       "std" => "PRODUCT DETAILS\n\nAenean lacinia bibendum nulla sed consectetur.\n\nSHIPPING DETAILS\n\nShips to Sea on Tranquility only. Estimated Arrival 12 - 17 Days\n\nRETURNS\n\nThis item is final sale and not eligible for return",
+                       "type" => "textarea");
+    
+    $options[] = array("name" => "Order/download Button Text",
+                       "desc" => "Enter the button text for the order/download form.",
+                       "id" => "orderform_cta_button",
+                       "std" => "Get Now",
                        "type" => "text");
     
     
-    $options[] = array("name" => "File to Download",
-                       "desc" => "Your downloadable file.",
-                       "id" => "file_to_download",
-                       "type" => "upload");
-    
-    $options[] = array("name" => "Your Video's Youtube ID",
-                       "desc" => "Paste here your video ID from Youtube.",
-                       "id" => "video_id",
-                       "std" => "zK4OpiLmReQ",
-                       "type" => "text");
-    
-    $options[] = array("name" => "External URL Redirect",
-                       "desc" => "The external URL you want to redirect to.",
+    $options[] = array("name" => "Popshop Callout Button URL Link",
+                       "desc" => "Enter the URL of the web page that you want the button to link to.",
                        "id" => "external_url",
                        "std" => "http://getpopshop.com/",
                        "type" => "text");
     
+    $options[] = array("name" => "File to Download",
+                       "desc" => 'Upload the file (.pdf or .zip) to be downloaded here (upload and select "use this image"). To increase maximum upload file size see <a href="http://wordpress.org/search/increase+file+size">http://wordpress.org/search/increase+file+size</a>',
+                       "id" => "file_to_download",
+                       "type" => "upload");
     
-    
-    $options[] = array("name" => "Price",
-                       "desc" => "A text string representing your price.",
-                       "id" => "price",
-                       "std" => "$49",
-                       "class" => "mini",
+    $options[] = array("name" => "Unlisted (Hidden) YouTube Video to Stream",
+                       "desc" => 'Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.<br><br>For details on how to upload unlisted YouTube, see <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=181547">YouTube support</a>.',
+                       "id" => "video_id",
+                       "std" => "zK4OpiLmReQ",
                        "type" => "text");
     
-    $options[] = array("name" => "Offer Details",
-                       "desc" => "Detail your offer (shipping info, product details, etc.) here.",
-                       "id" => "offer_details",
-                       "std" => "PRODUCT INFO\n\nSkateboard cardigan terry richardson, biodiesel pariatur mumblecore aliqua gluten-free qui vegan dolore single-origin coffee. Pour-over marfa truffaut id jean shorts velit, Austin high life butcher stumptown adipisicing. Adipisicing tattooed butcher pork belly, gentrify quinoa semiotics hoodie raw denim quis typewriter voluptate. Eiusmod viral fanny pack, pitchfork sriracha pork belly cred mollit vinyl terry richardson semiotics occaecat. Trust fund shoreditch laboris, skateboard pop-up labore irure enim squid. Adipisicing american apparel keytar, duis esse kogi four loko next level. Wes anderson fingerstache twee ethnic odio.\n\nSHIPPING INFO\n\nShips to: 50 US States only\n\nEstimated arrival: 10-17 days\n\nReturns Policy: Item is final sale and not eligible for return. Statutory rights unaffected.",
-                       "type" => "textarea");
     
+    $options[] = array("name" => "Activate Opt-in Email Marketing?",
+                       "desc" => "Select if you want to collect opt-ins for email marketing and set the opt-in question",
+                       "id" => "optin",
+                       "std" => '1',
+                       "type" => "radio",
+                       "options" => array('1' => 'Yes', 
+                                          '0' => 'No'));
     
-    $options[] = array("name" => "Front page Call-to-action",
-                       "desc" => "Text for the Front page's main call-to-action.",
-                       "id" => "main_cta_text",
-                       "std" => "Fan Special! Exclusive limited time offer -30% off.",
-                       "type" => "textarea");
-    
-    $options[] = array("name" => "Front page Button",
-                       "desc" => "Text for the Front page's main call-to-action button.",
-                       "id" => "main_cta_button",
-                       "std" => "Get This Offer",
-                       "class" => "mini",
-                       "type" => "text");
-    
-    $options[] = array("name" => "Order form Button",
-                       "desc" => "Text for the Order Form page's main call-to-action button.",
-                       "id" => "orderform_cta_button",
-                       "std" => "Get Now",
-                       "class" => "mini",
+    $options[] = array("name" => "Opt-in Email Marketing Question",
+                       "desc" => '',
+                       "id" => "optin_text",
+                       "std" => "Sign me up to receive news, exclusives and offers.",
                        "type" => "text");
     
     $options[] = array("name" => "Thank you Message",
-                       "desc" => "Text to display after the order has been confirmed.",
+                       "desc" => "Enter here a custom thank you message (supports HTML tags) that will appear on the download or streaming page, or as a thank you message in the case of a sample to be sent out by mail. The message will automatically include the order ID and, where appropriate, the download/streaming link.",
                        "id" => "thankyou_message",
-                       "std" => "Thank you for your order!",
+                       "std" => "Thanks. We hope you enjoy your free offer.",
                        "type" => "textarea");
-    
     
     
     /* New Tab */
     
-    $options[] = array("name" => "Cover Slider",
+    $options[] = array("name" => "Slider Settings",
                        "type" => "heading");
     
-    $options[] = array("name" => "Cover Type",
-                       "desc" => "Which type of Cover do you want: an image slider, or an embedded video?",
+    $options[] = array("name" => "Slider Mode",
+                       "desc" => "Do you want to showcase your product with a series of captioned images (slideshow mode) or with an embedded YouTube video?",
                        "id" => "cover_type",
                        "class" => "greybg",
                        "std" => "slider",
                        "type" => "radio",
-                       "options" => array("slider"     => "Image Slider", 
-                                          "covervideo" => "Embedded Video"));
+                       "options" => array("slider"     => "Slideshow Mode", 
+                                          "covervideo" => "Video Mode"));
+    
+    $options[] = array("name" => "Slide Transitions",
+                       "desc" => "Select transition style for slides (if you have more than one slide)",
+                       "id" => "slider_animation",
+                       "std" => "fade",
+                       "type" => "radio",
+                       "options" => array("fade"  => "Fade", 
+                                          "slide" => "Slide"));
+    
+    $options[] = array("name" => "Slide Transitions (Speed)",
+                       "desc" => "Select transition speed for slides, in milliseconds (if you have more than one slide).",
+                       "id" => "slider_animation_speed",
+                       "std" => "7000",
+                       "type" => "text");
+    
+    $options[] = array("name" => "Slide Caption Style",
+                       "desc" => "Choose whether you want your caption background to be Dark (default, good for most pictures) or Light (good for light images). The default transparency is 50%. The CSS element for this is <code>.flex-caption</code>.",
+                       "id" => "slider_caption_style",
+                       "std" => "dark-caption",
+                       "type" => "radio",
+                       "options" => array("dark-caption"  => "Dark Background, Light Text", 
+                                          "light-caption" => "Light Background, Dark Text"));
+    
+    $options[] = array("name" => "Slide Caption Position",
+                       "desc" => "Select where you'd like to position the text on your slides. Top Full Width spans the top of the slides, Right Full length is a full length column flush right and 265 pixels wide. The CSS element for this is <code>.flex-caption</code>.",
+                       "id" => "slider_caption_position",
+                       "std" => "top",
+                       "type" => "radio",
+                       "options" => array("top"   => "Top Full Width", 
+                                          "right" => "Right Full Length"));
     
     $options[] = array("name" => "Slider Caption",
                        "desc" => "Use the same caption for every Slider image",
@@ -179,75 +228,61 @@ function optionsframework_options() {
                        "type" => "checkbox"); /* This is actually only used in the UI logic (hide or show input fields), not as an actual option. */
     
     $options[] = array("name" => "Slider Caption",
-                       "desc" => "Text to overlay on all slider images.",
+                       "desc" => "Text to overlay on all slider images. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption",
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #1",
-                       "desc" => "Add slider image here (810x315px).",
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "slider_image_1",
                        "type" => "upload");
     
     $options[] = array("name" => "Slider Caption #1",
-                       "desc" => "Text to overlay on Slider Image #1.",
+                       "desc" => "Text to overlay on Slider Image #1. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_1",
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #2",
-                       "desc" => "Add slider image here (810x315px).",
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "slider_image_2",
                        "type" => "upload");
     
     $options[] = array("name" => "Slider Caption #2",
-                       "desc" => "Text to overlay on Slider Image #2.",
+                       "desc" => "Text to overlay on Slider Image #2. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_2",
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #3",
-                       "desc" => "Add slider image here (810x315px).",
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "slider_image_3",
                        "type" => "upload");
     
     $options[] = array("name" => "Slider Caption #3",
-                       "desc" => "Text to overlay on Slider Image #3.",
+                       "desc" => "Text to overlay on Slider Image #3. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_3",
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #4",
-                       "desc" => "Add slider image here (810x315px).",
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "slider_image_4",
                        "type" => "upload");
     
     $options[] = array("name" => "Slider Caption #4",
-                       "desc" => "Text to overlay on Slider Image #4.",
+                       "desc" => "Text to overlay on Slider Image #4. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_4",
                        "type" => "text");
     
     $options[] = array("name" => "Slider Image #5",
-                       "desc" => "Add slider image here (810x315px).",
+                       "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "large" size on WordPress image uploader.',
                        "id" => "slider_image_5",
                        "type" => "upload");
     
     $options[] = array("name" => "Slider Caption #5",
-                       "desc" => "Text to overlay on Slider Image #5.",
+                       "desc" => "Text to overlay on Slider Image #5. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_5",
                        "type" => "text");
     
-    $options[] = array("name" => "Slider Effect",
-                       "desc" => "Which animation type do you want, Fade (default) or Slide?",
-                       "id" => "slider_animation",
-                       "std" => "fade",
-                       "type" => "radio",
-                       "options" => array("fade"  => "Fade", 
-                                          "slide" => "Slide"));
     
-    $options[] = array("name" => "Caption Style",
-                       "desc" => "Which caption style do you want: Dark (default - works best for dark or medium pictures) or Light (works best for lighter pictures)",
-                       "id" => "slider_caption_style",
-                       "std" => "dark-caption",
-                       "type" => "radio",
-                       "options" => array("dark-caption"  => "Dark", 
-                                          "light-caption" => "Light"));
     
     
     $options[] = array("name" => "Your Cover Video's Youtube ID",
@@ -269,7 +304,7 @@ function optionsframework_options() {
                        "type" => "heading");
     
     $options[] = array("name" => "Order Form Fields Generator",
-                       "desc" => 'Those are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Products, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Lead"-type form.',
+                       "desc" => 'Those are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required on your part, but all fields will be required on your users part. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>In the case of physical orders and if you only ship in one country, you can specify the country using a Title element below the address fields.',
                        "id" => "orderform_fields",
                        "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"text","placeholder":"Country","name":"customer[country]"}]',
                        "type" => "textarea");

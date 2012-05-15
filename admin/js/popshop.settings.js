@@ -28,22 +28,33 @@ jQuery(document).ready(function($){
     /*-----------------------------------------------------------------------------------*/
     
     // On document load, set correct options:
-    var product_type = $("#section-product_type input:checked").val();
-    $("#slide-product_type .startbox[data-product='"+product_type+"']").addClass("active");
+    var shop_type = $("#section-shop_type input:checked").val();
+    $("#slide-shop_type .startbox[data-shop='"+shop_type+"']").addClass("active");
     var payment_type = $("#section-payment_type input:checked").val();
     $("#slide-payment_type .startbox[data-payment='"+payment_type+"']").addClass("active");
+    var product_type = $("#section-product_type input:checked").val();
+    $("#slide-product_type .startbox[data-product='"+product_type+"']").addClass("active");
     
     
-    // First slide (Product type)
-    $("#slide-product_type .startbox").click(function(){
-        console.log($(this).attr('data-product'));
-        $("#section-product_type input[value='"+$(this).attr('data-product')+"']").attr('checked', 'checked');
-        $("#slide-product_type .startbox").removeClass("active");
+    // First slide (Shop type)
+    $("#slide-shop_type .startbox").click(function(){
+        console.log($(this).attr('data-shop'));
+        $("#section-shop_type input[value='"+$(this).attr('data-shop')+"']").attr('checked', 'checked');
+        $("#slide-shop_type .startbox").removeClass("active");
         $(this).addClass("active");
-        // Switch to second slide:
-        $("#slide-product_type").hide();
-        $("#slide-payment_type").show();
-        refreshProductType();
+        refreshShopType();
+        switch ($(this).attr('data-shop'))
+        {
+            case "sell":
+                // Switch to second slide:
+                $("#slide-shop_type").hide();
+                $("#slide-payment_type").show();
+                break;
+            case "link":
+                // Switch to second Options Framework tab (the one after Getting Started), by triggering a click on the corresponding tab:
+                $(".nav-popshop-settings a.nav-tab").eq(1).trigger('click');
+                break;
+        }
     });
     
     // Second slide (Payment type)
@@ -52,19 +63,91 @@ jQuery(document).ready(function($){
         $("#section-payment_type input[value='"+$(this).attr('data-payment')+"']").attr('checked', 'checked');
         $("#slide-payment_type .startbox").removeClass("active");
         $(this).addClass("active");
+        refreshPaymentType();
+        // Switch to third slide:
+        $("#slide-payment_type").hide();
+        $("#slide-product_type").show();
+    });
+    
+    // Third slide (Product type)
+    $("#slide-product_type .startbox").click(function(){
+        console.log($(this).attr('data-product'));
+        $("#section-product_type input[value='"+$(this).attr('data-product')+"']").attr('checked', 'checked');
+        $("#slide-product_type .startbox").removeClass("active");
+        $(this).addClass("active");
+        refreshProductType();
         // Switch to second Options Framework tab (the one after Getting Started), by triggering a click on the corresponding tab:
         $(".nav-popshop-settings a.nav-tab").eq(1).trigger('click');
-        refreshPaymentType();
     });
     
-    $("#slide-back").click(function(event){
+    $(".slide-back").click(function(event){
         event.preventDefault();
-        $("#slide-product_type").show();
+        $("#slide-shop_type").hide();
         $("#slide-payment_type").hide();
+        $("#slide-product_type").hide();
+        $($(this).attr('data-slide')).show();
     });
     
     
-    // Hide and show options depending on chosen Product and Payment types:
+    // Hide and show options depending on chosen Shop, Payment and Product types:
+    var refreshShopType = function(){
+        var shop_type = $("#section-shop_type input:checked").val();
+        switch (shop_type)
+        {
+            case "sell":
+                $("#section-product_name").show();
+                $("#section-price").show();
+                $("#section-offer_details").show();
+                $("#section-external_url").hide();
+                $("#section-file_to_download").show();
+                $("#section-video_id").show();
+                $("#section-orderform_cta_button").show();
+                $("#section-thankyou_message").show();
+                $("#section-optin, #section-optin_text").hide();
+                break;
+            case "link":
+                $("#section-product_name").hide();
+                $("#section-price").hide();
+                $("#section-offer_details").hide();
+                $("#section-external_url").show();
+                $("#section-file_to_download").hide();
+                $("#section-video_id").hide();
+                $("#section-orderform_cta_button").hide();
+                $("#section-thankyou_message").hide();
+                $("#section-optin, #section-optin_text").hide();
+                break;
+        }
+    };
+    var refreshPaymentType = function(){
+        var payment_type = $("#section-payment_type input:checked").val();
+        switch (payment_type)
+        {
+            case "free":
+                $("#of-option-paypal-tab").hide();
+                $("#price").val("FREE");
+                $("#of-option-orderformfields-tab").hide();
+                $("#section-optin, #section-optin_text").hide();
+                break;
+            case "share":
+                $("#of-option-paypal-tab").hide();
+                $("#price").val("FREE");
+                $("#of-option-orderformfields-tab").hide();
+                $("#section-optin, #section-optin_text").hide();
+                break;
+            case "contact":
+                $("#of-option-paypal-tab").hide();
+                $("#price").val("FREE");
+                $("#of-option-orderformfields-tab").show();
+                $("#of-option-orderformfields-tab").text('Contact Capture Fields');
+                $("#section-optin, #section-optin_text").show();
+                break;
+            case "paypal":
+                $("#of-option-paypal-tab").show();
+                $("#of-option-orderformfields-tab").show();
+                $("#section-optin, #section-optin_text").show();
+                break;
+        }
+    };
     var refreshProductType = function(){
         var product_type = $("#section-product_type input:checked").val();
         switch (product_type)
@@ -83,44 +166,19 @@ jQuery(document).ready(function($){
                 $("#section-file_to_download").hide();
                 $("#section-video_id").hide();
                 $("#section-external_url").hide();
-                break;
-            case "link":
-                $("#section-file_to_download").hide();
-                $("#section-video_id").hide();
-                $("#section-external_url").show();
-                break;
-        }
-    };
-    var refreshPaymentType = function(){
-        var payment_type = $("#section-payment_type input:checked").val();
-        switch (payment_type)
-        {
-            case "free":
-                $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
-                $("#of-option-orderformfields-tab").hide();
-                break;
-            case "share":
-                $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
-                $("#of-option-orderformfields-tab").hide();
-                break;
-            case "contact":
-                $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
                 $("#of-option-orderformfields-tab").show();
-                break;
-            case "paypal":
-                $("#of-option-paypal-tab").show();
-                $("#of-option-orderformfields-tab").show();
+                $("#of-option-orderformfields-tab").text('Addressee Fields');
                 break;
         }
     };
     
     // Also run these functions on document load:
-    refreshProductType();
+    refreshShopType();
     refreshPaymentType();
+    refreshProductType();
     
+    // For now, always hide PayPal:
+    $("#of-option-paypal-tab").hide();
     
     
     /*-----------------------------------------------------------------------------------*/
@@ -293,8 +351,8 @@ jQuery(document).ready(function($){
     
     // Cover Slider tab:
     // First, create two "cover type" divs and move all corresponding options inside:
-    $("#of-option-coverslider").append('<div id="section-slider"></div>');
-    $("#of-option-coverslider").append('<div id="section-covervideo"></div>');
+    $("#of-option-slidersettings").append('<div id="section-slider"></div>');
+    $("#of-option-slidersettings").append('<div id="section-covervideo"></div>');
     $("div.section[id^='section-slider_']").appendTo($("#section-slider"));
     $("div.section[id^='section-covervideo_']").appendTo($("#section-covervideo"));
     

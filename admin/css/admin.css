@@ -270,17 +270,8 @@ height:70px;
 float:left;
 }
 
-.startbox-img.file {
-background-image:url('../images/nounproject/70x70/file.png');
-}
-
-.startbox-img.video {
-background-image:url('../images/nounproject/70x70/video.png');
-}
-
-.startbox-img.gift {
-background-image:url('../images/nounproject/70x70/gift.png');
-margin-left:2px;
+.startbox-img.sell {
+background-image:url('../images/nounproject/70x70/sell.png');
 }
 
 .startbox-img.link {
@@ -301,6 +292,19 @@ background-image:url('../images/nounproject/70x70/contact.png');
 
 .startbox-img.cash {
 background-image:url('../images/nounproject/70x70/cash.png');
+}
+
+.startbox-img.file {
+background-image:url('../images/nounproject/70x70/file.png');
+}
+
+.startbox-img.video {
+background-image:url('../images/nounproject/70x70/video.png');
+}
+
+.startbox-img.gift {
+background-image:url('../images/nounproject/70x70/gift.png');
+margin-left:2px;
 }
 
 .startbox-text {
@@ -357,6 +361,10 @@ display:none;
 #orderform_fields_editor input {
 width:200px !important;
 margin:4px !important;
+}
+
+#orderform_fields_editor input.h3 {
+background-color:#DDD;
 }
 
 #orderform_fields_editor span.field-type {

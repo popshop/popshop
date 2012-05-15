@@ -305,6 +305,7 @@ function optionscheck_change_sanitization() {
     $allowedtags["a"]["target"] = array();
     $allowedtags["a"]["class"] = array();
     $allowedtags["a"]["data-example"] = array();
+    $allowedtags["br"] = array();
     
     remove_all_filters('of_sanitize_info');
     
