@@ -184,6 +184,9 @@ function popshop_activation() {
             
             // CHECK SCHEMA
             popshop_check_schema();
+            
+            // IMAGE SIZES
+            popshop_hardcode_image_sizes();
         }
     }
 }
@@ -220,10 +223,21 @@ add_action('wp_ajax_popshop_orderstatus_ajax', 'popshop_orderstatus_ajax_callbac
 
 // CROPPING/RESIZING SLIDER IMAGES
 // Right now, we don't have a way to retrieve the attachment ID from an uploaded file in Options Framework (though this would be very helpful)
-// so we can't use the natively-resized thumbnail. So we "crop" images that are larger than 810x315 using CSS only, even though it's not ideal.
+// so we can't use the natively-resized thumbnails/images automatically.
+// However, users can use them manually (from within the Media uploader).
+// Additionally, we "crop" images that might still be larger than 810x315 using CSS only, even though it's not ideal.
+
 // add_image_size('slider-thumb', 810, 315, true);
 
-
+function popshop_hardcode_image_sizes()
+{
+    update_option('thumbnail_size_w', 160);
+    update_option('thumbnail_size_h', 160);
+    update_option('thumbnail_crop', 1);
+    update_option('large_size_w', 810);
+    update_option('large_size_h', 315);
+    update_option('large_crop', 1);
+}
 
 
 /*-----------------------------------------------------------------------------------*/
