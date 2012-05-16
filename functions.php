@@ -80,7 +80,7 @@ function build_popshop_menu() {
     
     add_submenu_page('popshop', 'Dashboard', 'Dashboard', 'edit_theme_options', 'popshop', 'build_popshop_dashboard_page');
     add_submenu_page('popshop', 'Orders', 'Orders', 'edit_theme_options', 'popshop-orders', 'build_popshop_orders_page');
-    add_submenu_page('popshop', 'Settings', 'Settings', 'edit_theme_options', 'popshop-settings', 'build_popshop_settings_page');
+    add_submenu_page('popshop', 'Setup', 'Setup', 'edit_theme_options', 'popshop-settings', 'build_popshop_settings_page');
     // This last slug is what we save as OPTIONS_FRAMEWORK_ADMIN_PAGE (called $of_page in native Options Framework)
 }
 add_action('admin_menu', 'build_popshop_menu');
