@@ -1,9 +1,14 @@
 <?php
 
-$stats_intents = popshop_stats_intents();
+$intents_by_type = popshop_stats_intents_by_type();
 
-$stats_channels = popshop_stats_channels();
+$visits_by_channel = popshop_stats_visits_by_channel();
 
+$visits_by_time = popshop_stats_visits_by_time();
+
+$orders_by_time = popshop_stats_orders_by_time();
+
+$k_factor = ($intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt) / ($visits_by_time['total'] + 1);
 
 ?>
 
@@ -17,43 +22,47 @@ $stats_channels = popshop_stats_channels();
 
 popshop_databox("Visits",
                 "people",
-                array("Today" => "873.50 €",
-                      "This Week" => "2150.70 €",
-                      "This Month" => "3150.10 €",
-                      "All Time" => "$ 4150.90"));
+                array("Today"      => $visits_by_time['today'],
+                      "This Week"  => $visits_by_time['week'],
+                      "This Month" => $visits_by_time['month'],
+                      "All Time"   => $visits_by_time['total']));
 
 popshop_databox("Visits by Channel",
                 "download",
-                array("Facebook" => $stats_channels->facebook,
-                      "Web" => $stats_channels->web,
-                      "Mobile" => $stats_channels->mobile));
+                array("Facebook" => $visits_by_channel->facebook,
+                      "Web"      => $visits_by_channel->web,
+                      "Mobile"   => $visits_by_channel->mobile));
 
 popshop_databox("Social Shares",
                 "rocket",
-                array("Facebook" => $stats_intents['like']->cnt,
-                      "Twitter" => $stats_intents['tweet']->cnt,
-                      "Google Plus" => $stats_intents['plusone']->cnt,
-                      "Pinterest" => $stats_intents['pinit']->cnt));
+                array("Facebook" => $intents_by_type['like']->cnt,
+                      "Twitter"  => $intents_by_type['tweet']->cnt,
+                      "Other"    => $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt,
+                      "All"      => $intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt));
 
-popshop_databox("Video Views",
-                "video",
-                array("All Time" => $stats_intents['youtube']->cnt));
-
+if ($intents_by_type['youtube']->cnt > 0) {
+    popshop_databox("YouTube Views",
+                    "video",
+                    array("All Time" => $intents_by_type['youtube']->cnt));
+}
 
 popshop_databox("Virality K-Factor",
                 "science",
-                array("Visits from Social Networks / Social Share" => "n/a"));
+                array("Social Shares / Visits" => $k_factor));  
+// This should be "Visits from Social Networks / Social Share",
+// but this is much easier to compute.
 
 popshop_databox("Orders",
                 "card",
-                array("Today" => "873.50 €",
-                      "This Week" => "2150.70 €",
-                      "This Month" => "3150.10 €",
-                      "All Time" => "$ 4150.90"));
+                array("Today"      => $orders_by_time['today'],
+                      "This Week"  => $orders_by_time['week'],
+                      "This Month" => $orders_by_time['month'],
+                      "All Time"   => $orders_by_time['total']));
 
-popshop_databox("Revenue",
-                "cash",
-                array("All time" => "n/a"));
+
+// popshop_databox("Revenue",
+//                 "cash",
+//                 array("All time" => "n/a"));
 
 ?>
 

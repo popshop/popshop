@@ -695,8 +695,8 @@ function popshop_stats_report()
     // This also gives us the opportunity of building an up-to-date directory of sites running Popshop on http://getpopshop.com :
     // if you want to appear in our directory, you have to turn stats reporting on.
     
-    $stats = array('stats_intents'  => popshop_stats_intents(),
-                   'stats_channels' => popshop_stats_channels(),
+    $stats = array('stats_intents'  => popshop_stats_intents_by_type(),
+                   'stats_channels' => popshop_stats_visits_by_channel(),
                    'home_url'       => home_url(),
                    'header'         => popshop_get_option('header'));
     
