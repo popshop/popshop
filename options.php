@@ -292,7 +292,7 @@ function optionsframework_options() {
                        "options" => array("center"  => "Centre", 
                                           "right"   => "Centre-Right"));
     
-    $options[] = array("name" => "Video Background image",
+    $options[] = array("name" => "Video Background image (Optional)",
                        "desc" => 'Add video background image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "covervideo_image",
                        "type" => "upload");

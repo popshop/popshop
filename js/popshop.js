@@ -12,8 +12,9 @@ jQuery(document).ready(function($){
         shared: false,
         viewed: false,
         facebook: null,
-        product_type: null,
+        shop_type: null,
         payment_type: null,
+        product_type: null,
         paypal_process: null,
         paypal_url: null,
         init: function() {
@@ -24,8 +25,9 @@ jQuery(document).ready(function($){
             else {
                 Popshop.facebook = false;
             }
-            Popshop.product_type = $("#product_type").text();
+            Popshop.shop_type = $("#shop_type").text();
             Popshop.payment_type = $("#payment_type").text();
+            Popshop.product_type = $("#product_type").text();
         },
         resizeMesh: function() {
             $("#mesh").height($(document).height()+1000);
@@ -137,7 +139,7 @@ jQuery(document).ready(function($){
             return;
         }
         $("#morecontent").hide();
-        if (Popshop.product_type == "link") {
+        if (Popshop.shop_type == "link") {
             top.location = $("#external_url").text();
         }
         else {

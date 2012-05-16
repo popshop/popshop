@@ -237,7 +237,7 @@ function popshop_hardcode_image_sizes()
     update_option('medium_size_w', 810);
     update_option('medium_size_h', 315);
     update_option('medium_crop', 1);
-    update_option('large_size_w', 810);
+    update_option('large_size_w', 790);
     update_option('large_size_h', 3000);
 }
 
