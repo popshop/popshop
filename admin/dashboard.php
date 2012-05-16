@@ -8,7 +8,7 @@ $visits_by_time = popshop_stats_visits_by_time();
 
 $orders_by_time = popshop_stats_orders_by_time();
 
-$k_factor = ($intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt) / ($visits_by_time['total'] + 1);
+$k_factor = round(($intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt) / ($visits_by_time['total'] + 1), 3);
 
 ?>
 
@@ -35,10 +35,10 @@ popshop_databox("Visits by Channel",
 
 popshop_databox("Social Shares",
                 "rocket",
-                array("Facebook" => $intents_by_type['like']->cnt,
+                array("All"      => $intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt,
+                      "Facebook" => $intents_by_type['like']->cnt,
                       "Twitter"  => $intents_by_type['tweet']->cnt,
-                      "Other"    => $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt,
-                      "All"      => $intents_by_type['like']->cnt + $intents_by_type['tweet']->cnt + $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt));
+                      "Other"    => $intents_by_type['plusone']->cnt + $intents_by_type['pinit']->cnt + $intents_by_type['linkedin']->cnt));
 
 if ($intents_by_type['youtube']->cnt > 0) {
     popshop_databox("YouTube Views",
