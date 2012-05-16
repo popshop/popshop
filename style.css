@@ -257,25 +257,44 @@ text-transform:uppercase;
 position:relative;
 }
 
-.covervideo #media-container {
+.covervideo .media-container {
 margin:auto;
-width:378px;
+width:370px;
 }
 
-.covervideo #media {
+.covervideo .media {
 position:absolute;
 bottom:10px;
 }
 
-.covervideo #media.right {
+.covervideo .media.right {
 bottom:77px;
-left:314px;
+left:318px;
 }
 
 .covervideo div.moviebg {
 max-width:810px;
 max-height:315px;
 overflow:hidden;
+}
+
+/* Media (Digital Streaming product) */
+
+div.streaming {
+margin-top:15px;
+margin-bottom:25px;
+position:relative;
+}
+
+.streaming .media-container {
+background:url('images/moviebg-big.png');
+height:588px;
+}
+
+.streaming .media {
+position:absolute;
+top:32px;
+left:30px;
 }
 
 /* Timeline "spine", and very basic styling for blog posts and pages */

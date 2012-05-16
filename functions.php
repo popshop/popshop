@@ -530,8 +530,27 @@ function popshop_facebook_url()
 
 function popshop_get_video_embed($which)
 {
-    $video_embed_code = popshop_get_option('video_embed_code');
-    // Default: '<iframe id="player" width="378" height="222" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>'
+    if ($which == "cover") {
+        // Cover video
+        if (popshop_get_option('video_embed_code')) {
+            $video_embed_code = popshop_get_option('video_embed_code');
+        }
+        else {
+            // Default:
+            $video_embed_code = '<iframe id="player" width="370" height="218" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
+        }
+    }
+    else {
+        // Digital Streaming
+        if (popshop_get_option('video_embed_code_2')) {
+            $video_embed_code = popshop_get_option('video_embed_code_2');
+        }
+        else {
+            // Default:
+            $video_embed_code = '<iframe id="player" width="710" height="391" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
+        }
+    }
+    
     
     if ($which == "cover") {
         $video_id = popshop_get_option('covervideo_id');

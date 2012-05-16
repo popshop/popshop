@@ -145,7 +145,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "File to Download",
-                       "desc" => 'Upload the file (.pdf or .zip) to be downloaded here (upload and select "use this image"). To increase maximum upload file size see <a href="http://wordpress.org/search/increase+file+size">http://wordpress.org/search/increase+file+size</a>',
+                       "desc" => 'Upload the file (.pdf or .zip) to be downloaded here (upload and select "use this image" - you may have to select "File URL"). To increase maximum upload file size see <a href="http://wordpress.org/search/increase+file+size">http://wordpress.org/search/increase+file+size</a>',
                        "id" => "file_to_download",
                        "type" => "upload");
     
@@ -285,7 +285,7 @@ function optionsframework_options() {
     
     
     $options[] = array("name" => "Video Position",
-                       "desc" => "Choose where you want to position the video - in the centre, or offset to centre-right (balanced with logo). The CSS element for this is <code>.covervideo #media</code>.",
+                       "desc" => "Choose where you want to position the video - in the centre, or offset to centre-right (balanced with logo). The CSS element for this is <code>.covervideo .media</code>.",
                        "id" => "covervideo_position",
                        "std" => "right",
                        "type" => "radio",
@@ -312,10 +312,10 @@ function optionsframework_options() {
     $options[] = array("name" => "Order Form Fields Generator",
                        "desc" => 'Those are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required on your part, but all fields will be required on your users part. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>In the case of physical orders and if you only ship in one country, you can specify the country using a Title element below the address fields.',
                        "id" => "orderform_fields",
-                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"text","placeholder":"Country","name":"customer[country]"}]',
+                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]',
                        "type" => "textarea");
     
-    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"text","placeholder":"Country","name":"customer[country]"}]</div>',
+    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]</div>',
                        "class" => "hidden",
 					   "type" => "info");
     
@@ -354,16 +354,6 @@ function optionsframework_options() {
                        "options" => array("like" => "Like", "tweet" => "Tweet", "plusone" => "Google +1", "pinit" => "Pin It", "linkedin" => "LinkedIn Share"));
     
     
-    $options[] = array("name" => "Video embed default code",
-                       "desc" => "This is the default embed code from Youtube. Only modify if you know what you're doing!",
-                       "id" => "video_embed_code",
-                       "std" => '<iframe id="player" width="378" height="222" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
-                       "type" => "textarea");
-    
-    // @see http://stackoverflow.com/questions/3820325/overlay-opaque-div-over-youtube-iframe 
-    // @see http://stackoverflow.com/questions/886864/differences-between-using-wmode-transparent-opaque-or-window-for-an-embe
-    // opaque is less resource-intensive than transparent 
-    
     
     $options[] = array("name" => "Custom CSS",
                        "desc" => "Any custom CSS you paste here will be added to your Popshop.",
@@ -372,9 +362,25 @@ function optionsframework_options() {
                        "type" => "textarea");
     
     $options[] = array("name" => "Google Analytics tracking script",
-                       "desc" => "Add your Google Analytics tracking code script here (including the <script></script> tags).",
+                       "desc" => "Add your Google Analytics tracking code script here (including the <code>&lt;script&gt;&lt;/script&gt;</code> tags).",
                        "id" => "custom_script",
                        "std" => "",
+                       "type" => "textarea");
+    
+    $options[] = array("name" => "Video embed default code (Slider Video)",
+                       "desc" => "This is the default embed code from Youtube. Only modify if you know what you're doing!",
+                       "id" => "video_embed_code",
+                       "std" => '<iframe id="player" width="370" height="218" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
+                       "type" => "textarea");
+    
+    // @see http://stackoverflow.com/questions/3820325/overlay-opaque-div-over-youtube-iframe 
+    // @see http://stackoverflow.com/questions/886864/differences-between-using-wmode-transparent-opaque-or-window-for-an-embe
+    // opaque is less resource-intensive than transparent
+    
+    $options[] = array("name" => "Video embed default code (Digital Streaming)",
+                       "desc" => "This is the default embed code from Youtube. Only modify if you know what you're doing!",
+                       "id" => "video_embed_code_2",
+                       "std" => '<iframe id="player" width="710" height="391" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
                        "type" => "textarea");
     
     $options[] = array("name" => "Hide Popshop link in the Navigation menu",

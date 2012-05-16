@@ -59,8 +59,8 @@ if (!popshop_on_facebook()) {
                     <img class="moviebg" src="<?php bloginfo('template_url') ?>/images/moviebg.png" />
                 <?php endif; ?>
             </div>
-            <div id="media-container">
-                <div id="media" class="<?php echo popshop_get_option('covervideo_position') ?>">
+            <div class="media-container">
+                <div class="media <?php echo popshop_get_option('covervideo_position') ?>">
                     <?php echo popshop_get_video_embed("cover") ?>
                 </div>
             </div>
@@ -186,8 +186,13 @@ if (!popshop_on_facebook()) {
         
         <?php if(popshop_get_option('product_type') == "video"): ?>
             <div>Direct URL to save for future access: <code>http://youtu.be/<?php echo popshop_get_option('video_id') ?></code></div>
-            <br><br>
-            <?php echo popshop_get_video_embed("product") ?>
+            <div class="streaming">
+                <div class="media-container">
+                    <div class="media">
+                        <?php echo popshop_get_video_embed("product") ?>
+                    </div>
+                </div>
+            </div>
         <?php endif; ?>
         
     </div>
