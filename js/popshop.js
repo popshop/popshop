@@ -74,9 +74,9 @@ jQuery(document).ready(function($){
     }
     
     
-    /* Navigation menu */
+    /* Navigation menu and Terms & Conditions*/
     
-    $(".navmenu li.menu-item a").click(function(event){
+    $(".navmenu li.menu-item a, a.linktoterms").click(function(event){
         // For navigation menu items that are internal links, display them on the same page via AJAX.
         event.preventDefault();
         if ($(this).hasClass("active")) {
@@ -117,26 +117,6 @@ jQuery(document).ready(function($){
     });
     
     
-    
-    /* Terms and Conditions */
-    
-    $("a.linktoterms").click(function(event){
-        // For navigation menu items that are internal links, display them on the same page via AJAX.
-        event.preventDefault();
-        if ($(this).hasClass("active")) {
-            // If this link was already open, close it.
-            $("#morecontent").hide();
-            $(this).removeClass("active");
-        }
-        else {
-            $.get($(this).attr("href"), function(data){
-                $("#morecontent").show();
-                $("#morecontent-inner").html(data);
-            });
-            // Set this link to "active"
-            $(this).addClass("active");
-        }
-    });
     
     
     $(".flexslider").flexslider({ animation:      $("#slider_animation").text(),
