@@ -82,7 +82,7 @@ jQuery(document).ready(function($){
         if ($(this).hasClass("active")) {
             // If this link was already open, close it.
             $("#morecontent").hide();
-            $(".navmenu li.menu-item a").removeClass("active");
+            $(".navmenu li.menu-item a, a.linktoterms").removeClass("active");
         }
         else {
             $.get($(this).attr("href"), function(data){
@@ -90,14 +90,14 @@ jQuery(document).ready(function($){
                 $("#morecontent-inner").html(data);
             });
             // Set this link to "active"
-            $(".navmenu li.menu-item a").removeClass("active");
+            $(".navmenu li.menu-item a, a.linktoterms").removeClass("active");
             $(this).addClass("active");
         }
     });
     
     $("#morecontent div.delete").click(function(){
         $("#morecontent").hide();
-        $(".navmenu li.menu-item a").removeClass("active");
+        $(".navmenu li.menu-item a, a.linktoterms").removeClass("active");
     });
     
     $(".popshop-fb-share").click(function(event){
@@ -163,6 +163,8 @@ jQuery(document).ready(function($){
         }
         else {
             var data = $("#orderform input").serializeObject();
+            // Add payment_type to this object:
+            data.payment = {type: Popshop.payment_type};
             Popshop.insertOrder(data, function(code){
                 if (code != "-1") {
                     // Order insert was a success.

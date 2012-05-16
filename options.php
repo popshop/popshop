@@ -86,7 +86,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Popshop Header",
                        "desc" => "Enter the name of your Popshop here.",
                        "id" => "header",
-                       "std" => "My fabulous pop-up event",
+                       "std" => "My Fabulous Pop-up Event",
                        "type" => "text");
     
     $options[] = array("name" => "Popshop Sub-Header",

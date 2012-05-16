@@ -39,11 +39,12 @@ class Popshop_Orders_List_Table extends WP_List_Table
     {
         $columns = array(
             'cb'       => '<input type="checkbox" />', //Render a checkbox instead of text
-            'status'   => 'Status',
             'id'       => 'Order ID',
             'email'    => 'Customer Email',
             'customer' => 'Customer Info',
+            'optin'    => 'Opted-in',
             'payment'  => 'Payment Info',
+            'status'   => 'Status',
             'date'     => 'Date'
         );
         return $columns;
@@ -88,9 +89,8 @@ class Popshop_Orders_List_Table extends WP_List_Table
             $out = sprintf("%s <a href='mailto:%s'>%s</a>", get_avatar($details->email, 32), $details->email, $details->email);
             return $out;
         }
-        else {
-            return $this->column_default(null, null);
-        }
+        
+        return $this->column_default(null, null);
     }
     
     
@@ -128,9 +128,38 @@ class Popshop_Orders_List_Table extends WP_List_Table
             
             return $fullname.$out;
         }
-        else {
-            return $this->column_default(null, null);
+        
+        return $this->column_default(null, null);
+    }
+    
+    
+    function column_optin($item)
+    {
+        $details = json_decode($item->details);
+        if ($details && isset($details->optin) && ($details->optin == "on")) {
+            
+            return "Yes";
         }
+        else {
+            return "No";
+        }
+    }
+    
+    
+    function column_payment($item)
+    {
+        $details = json_decode($item->details);
+        if ($details && isset($details->payment) && isset($details->payment->type)) {
+            $types = array('free'    => "Free",
+                           'share'   => "Free for a Share",
+                           'contact' => "Free for a Contact",
+                           'paypal'  => "PayPal");
+            if (isset($types[$details->payment->type])) {
+                return $types[$details->payment->type];
+            }
+        }
+        
+        return $this->column_default(null, null);
     }
     
     
