@@ -11,6 +11,7 @@ function popshop_intents()
 
 function popshop_intent_label($event)
 {
+    // Not used anymore.
     $intents = popshop_intents();
     return $intents[$event];
 }
@@ -285,7 +286,7 @@ function popshop_mintime_events()
 }
 
 
-function popshop_timecount_intents()
+function popshop_timecount()
 {
     global $wpdb;
     
@@ -306,24 +307,54 @@ function popshop_timecount_intents()
         $firstday = $today - $limit;
     }
     
-    foreach (popshop_intents() as $event => $label) {
-        $data[$event] = array_fill($firstday, $today - $firstday + 1, 0);
+    $aggregates = array('visit'  => 'Total Visits',
+                        'intent' => 'Total Shares',
+                        'order'  => 'Total Orders');
+    
+    foreach ($aggregates as $table => $label) {
+        $data[$table] = array_fill($firstday, $today - $firstday + 1, 0);
     }
     
+    // Intents:
+    
     $table = popshop_table("intent");
-    
-    $res = $wpdb->get_results("SELECT DATE(time) AS date, name, COUNT(*) AS cnt
+    $res = $wpdb->get_results("SELECT DATE(time) AS date, COUNT(*) AS cnt
                                FROM $table
-                               GROUP BY date, name");
-    
-    
-    
-    // Then, we insert the real data.
+                               WHERE name != 'youtube'
+                               GROUP BY date");
     foreach ($res as $count) {
         $day = (int) (strtotime($count->date) / 86400);
         if ($day >= $firstday) {
             // @todo: This should be done in the query above.
-            $data[$count->name][$day] = (int) $count->cnt;
+            $data['intent'][$day] = (int) $count->cnt;
+        }
+    }
+    
+    // Visits:
+    
+    $table = popshop_table("visit");
+    $res = $wpdb->get_results("SELECT DATE(time) AS date, COUNT(*) AS cnt
+                               FROM $table
+                               GROUP BY date");
+    foreach ($res as $count) {
+        $day = (int) (strtotime($count->date) / 86400);
+        if ($day >= $firstday) {
+            // @todo: This should be done in the query above.
+            $data['visit'][$day] = (int) $count->cnt;
+        }
+    }
+    
+    // Orders:
+    
+    $table = popshop_table("order");
+    $res = $wpdb->get_results("SELECT DATE(time) AS date, COUNT(*) AS cnt
+                               FROM $table
+                               GROUP BY date");
+    foreach ($res as $count) {
+        $day = (int) (strtotime($count->date) / 86400);
+        if ($day >= $firstday) {
+            // @todo: This should be done in the query above.
+            $data['order'][$day] = (int) $count->cnt;
         }
     }
     
@@ -334,8 +365,13 @@ function popshop_timecount_intents()
         foreach ($d as $date => $cnt) {
             $dots[] = array($date * 86400 * 1000, $cnt);
         }
-        $flot[] = array("label" => popshop_intent_label($event),
-                        "data" => $dots);
+        $plot = array("label" => $aggregates[$event],
+                      "data" => $dots);
+        if ($event == "visit") {
+            // Plot visits on a separate Y axis.
+            $plot["yaxis"] = 2;
+        }
+        $flot[] = $plot;
     }
     
     return json_encode($flot);

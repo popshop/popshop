@@ -84,7 +84,7 @@ popshop_databox("Orders",
     
     
     
-    <div id="popshop_timecount_intents"><?php echo popshop_timecount_intents() ?></div>
+    <div id="popshop_timecount_intents"><?php echo popshop_timecount() ?></div>
     
     <div id="popshop_tomorrow"><?php echo popshop_tomorrow() ?></div>
     

@@ -38,6 +38,7 @@ jQuery(document).ready(function($){
             minTickSize: [1, "day"],
             max: $("#popshop_tomorrow").text()
         },
+        yaxes: [{position:"left"}, {position:"right"}],            
         legend: {
             position: "nw"
         },
