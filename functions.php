@@ -593,7 +593,7 @@ function popshop_pinit_data()
     // Url-encoded data to pass to the Pinterest button
     
     $data = array("url" => home_url(),
-                  "media" => popshop_get_option("background_image"),
+                  "media" => popshop_get_option("slider_image_1"),
                   "description" => popshop_get_option("product_name"));
     
     return http_build_query($data);
