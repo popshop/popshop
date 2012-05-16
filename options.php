@@ -426,7 +426,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Image shared on Facebook",
-                       "desc" => "Specify Image to be shared on Facebook when users like your Popshop (defaults to your logo).",
+                       "desc" => "Specify Image to be shared on Facebook when users like your Popshop (defaults to your logo, but should be at least 200x200px).",
                        "id" => "facebook_image",
                        "type" => "upload");
     
