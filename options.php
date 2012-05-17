@@ -150,7 +150,7 @@ function optionsframework_options() {
                        "type" => "upload");
     
     $options[] = array("name" => "Unlisted (Hidden) YouTube Video to Stream",
-                       "desc" => 'Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.<br><br>For details on how to upload unlisted YouTube, see <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=181547">YouTube support</a>.',
+                       "desc" => 'Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.<br><br>For details on how to upload unlisted YouTube videos, see <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=181547">YouTube support</a>.',
                        "id" => "video_id",
                        "std" => "zK4OpiLmReQ",
                        "type" => "text");
