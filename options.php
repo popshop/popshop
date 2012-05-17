@@ -86,17 +86,17 @@ function optionsframework_options() {
     $options[] = array("name" => "Popshop Header",
                        "desc" => "Enter the name of your Popshop here.",
                        "id" => "header",
-                       "std" => "My Fabulous Pop-up Event",
+                       "std" => "Pop-up Social Sampling Store",
                        "type" => "text");
     
     $options[] = array("name" => "Popshop Sub-Header",
                        "desc" => "Enter the Sub-Header, such as a description of your Popshop here.",
                        "id" => "subheader",
-                       "std" => "Exclusive offer for Fans",
+                       "std" => "Get Free Samples for a Social Share",
                        "type" => "text");
     
     $options[] = array("name" => "Popshop Logo",
-                       "desc" => "Your brand or product logo (160x160px recommended).",
+                       "desc" => "Your brand, product or event logo (160x160px recommended).",
                        "id" => "logo",
                        "type" => "upload");
     
@@ -104,7 +104,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Popshop Callout Box Text",
                        "desc" => "Enter your call to action here.",
                        "id" => "main_cta_text",
-                       "std" => "Get our fantastic new product here, limited offer!",
+                       "std" => "Get an exclusive free preview sample in return for a social share!",
                        "type" => "textarea");
     
     $options[] = array("name" => "Popshop Callout Box Button Text",
@@ -116,7 +116,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Product Summary",
                        "desc" => "Enter short summary of the product being ordered. This will appear as the line item on the order form.",
                        "id" => "product_name",
-                       "std" => "One amazing product",
+                       "std" => "One fabulous sample",
                        "type" => "text");
     
     $options[] = array("name" => 'Product Summary Free Offer "Price"',
@@ -126,15 +126,15 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Product Description",
-                       "desc" => "Enter product description and offer details including eligibility, shipping and return details here.",
+                       "desc" => "Enter product description (you can also add details of limitations, such as offer eligibility.",
                        "id" => "offer_details",
-                       "std" => "PRODUCT DETAILS\n\nAenean lacinia bibendum nulla sed consectetur.\n\nSHIPPING DETAILS\n\nShips to Sea on Tranquility only. Estimated Arrival 12 - 17 Days\n\nRETURNS\n\nThis item is final sale and not eligible for return",
+                       "std" => "PRODUCT DESCRIPTION\n\nAenean lacinia bibendum nulla sed consectetur.",
                        "type" => "textarea");
     
-    $options[] = array("name" => "Order/download Button Text",
+    $options[] = array("name" => "Order/Download Button Text",
                        "desc" => "Enter the button text for the order/download form.",
                        "id" => "orderform_cta_button",
-                       "std" => "Get Now",
+                       "std" => "Order",
                        "type" => "text");
     
     
@@ -171,9 +171,9 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Thank you Message",
-                       "desc" => "Enter here a custom thank you message (supports HTML tags) that will appear on the download or streaming page, or as a thank you message in the case of a sample to be sent out by mail. The message will automatically include the order ID and, where appropriate, the download/streaming link.",
+                       "desc" => "Enter a custom thank you message (supports HTML tags) that will appear on the download or streaming page, or as a thank you message in the case of a sample to be sent out by mail. The message will automatically include the order ID and, where appropriate, the download/streaming link.",
                        "id" => "thankyou_message",
-                       "std" => "Thanks. We hope you enjoy your free offer.",
+                       "std" => "Thanks.\n\nWe hope you enjoy your free offer.",
                        "type" => "textarea");
     
     
@@ -310,16 +310,16 @@ function optionsframework_options() {
                        "type" => "heading");
     
     $options[] = array("name" => "Order Form Fields Generator",
-                       "desc" => 'Those are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required on your part, but all fields will be required on your users part. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>In the case of physical orders and if you only ship in one country, you can specify the country using a Title element below the address fields.',
+                       "desc" => 'These are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required on your part, but all fields will be required on your users part. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>In the case of physical orders and if you only ship in one country, you can specify the country using a Title element below the address fields.',
                        "id" => "orderform_fields",
-                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]',
+                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]',
                        "type" => "textarea");
     
-    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Shipping Details"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]</div>',
+    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]</div>',
                        "class" => "hidden",
 					   "type" => "info");
     
-    $options[] = array("desc" => '<div id="orderform_fields_contact">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Your contact Info"},{"type":"text","placeholder":"Company","name":"customer[company]"},{"type":"text","placeholder":"Position","name":"customer[position]"}]</div>',
+    $options[] = array("desc" => '<div id="orderform_fields_contact">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Your Work"},{"type":"text","placeholder":"Company","name":"customer[company]"},{"type":"text","placeholder":"Position","name":"customer[position]"}]</div>',
                        "class" => "hidden",
 					   "type" => "info");
     
