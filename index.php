@@ -125,7 +125,7 @@ if (!popshop_on_facebook()) {
     
     <div id="orderform" class="cf formpage" style="display:none">
         <div class="delete"></div>
-        <h2>Order Form</h2>
+        <h2>Order</h2>
         
         <div class="itemsummary">
             <span class="productname-label">Item</span>
