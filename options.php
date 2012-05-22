@@ -431,6 +431,13 @@ function optionsframework_options() {
                        "class" => "hidden",
                        "type" => "text");
     
+    
+    $options[] = array("name" => "Redirect all HTTP traffic to HTTPS",
+                       "desc" => "If you have a SSL certificate set up (strongly advised if you set up a Page Tab on Facebook), please check this box so that all HTTP traffic is redirected to HTTPS.<br>Checking this is useful when you have SSL enabled because it means all traffic will view the same secure page, making your share button count more reliable.",
+                       "id" => "force_https",
+                       "std" => "0",
+                       "type" => "checkbox");
+    
     $options[] = array("name" => "Image shared on Facebook",
                        "desc" => "Specify Image to be shared on Facebook when users like your Popshop (defaults to your logo, but should be at least 200x200px).",
                        "id" => "facebook_image",

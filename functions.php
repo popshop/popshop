@@ -242,6 +242,23 @@ function popshop_hardcode_image_sizes()
 }
 
 
+
+function popshop_force_https()
+{
+    if (!is_admin()) {
+        // We're on the frontend.
+        if (popshop_get_option('force_https')) {
+            if (!is_ssl()) {
+                $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                wp_redirect($url);
+                exit;
+            }
+        }
+    }
+}
+add_action('after_setup_theme', 'popshop_force_https');
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Options Framework Theme
 /*-----------------------------------------------------------------------------------*/
@@ -661,6 +678,7 @@ function popshop_slider_slides()
     }
     return $images;
 }
+
 
 
 function popshop_save_hit()

@@ -181,7 +181,7 @@ jQuery(document).ready(function($){
     
     // "Add to Facebook Page" helper
     (function(){
-        var markup = '<div class="section" id="section-facebook_add_to_page"><h4 class="heading">Add your Popshop page tab to your Facebook page</h4><a href="" class="button" id="add_to_fb_page">Add to page</a></div>';
+        var markup = '<div class="section" id="section-facebook_add_to_page"><h4 class="heading">Add your Popshop page tab to your Facebook page</h4><a href="" class="button" id="add_to_fb_page">Add to page</a><p>Please fill in your Facebook application credentials, save options, then click on "Add to page".</p></div>';
         
         $("#section-facebook_app_secret").after(markup);
         
