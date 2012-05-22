@@ -1,3 +1,8 @@
+// @see http://afarkas.github.com/webshim/demos/
+// should be called as soon as possible (before DOM ready)
+jQuery.webshims.polyfill('forms');
+
+
 // @see http://stackoverflow.com/questions/1184624/convert-form-data-to-js-object-with-jquery
 // @see http://stackoverflow.com/a/8407771/593036
 // Changed name from `toJSON` to `serializeObject`

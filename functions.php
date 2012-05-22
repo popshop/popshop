@@ -20,6 +20,11 @@ function popshop_scripts() {
     wp_register_script('popshop_script_flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array('jquery'));
     wp_enqueue_script('popshop_script_flexslider');
     
+    wp_register_script('popshop_script_modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array('jquery'));
+    wp_enqueue_script('popshop_script_modernizr');
+    wp_register_script('popshop_script_polyfiller', get_template_directory_uri() . '/js/polyfiller.js', array('jquery'));
+    wp_enqueue_script('popshop_script_polyfiller');
+    
     wp_register_script('popshop', get_template_directory_uri() . '/js/popshop.js', array('jquery'));
     wp_enqueue_script('popshop');
 }
