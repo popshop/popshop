@@ -126,7 +126,7 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Product Description",
-                       "desc" => "Enter product description (you can also add details of limitations, such as offer eligibility.",
+                       "desc" => "Enter product description (you can also add details of limitations, such as offer eligibility).",
                        "id" => "offer_details",
                        "std" => "PRODUCT DESCRIPTION\n\nAenean lacinia bibendum nulla sed consectetur.",
                        "type" => "textarea");
