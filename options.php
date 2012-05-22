@@ -230,7 +230,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption",
                        "desc" => "Text to overlay on all slider images. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption",
-                       "type" => "text");
+                       "type" => "textarea");
     
     $options[] = array("name" => "Slider Image #1",
                        "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
@@ -240,7 +240,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption #1",
                        "desc" => "Text to overlay on Slider Image #1. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_1",
-                       "type" => "text");
+                       "type" => "textarea");
     
     $options[] = array("name" => "Slider Image #2",
                        "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
@@ -250,7 +250,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption #2",
                        "desc" => "Text to overlay on Slider Image #2. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_2",
-                       "type" => "text");
+                       "type" => "textarea");
     
     $options[] = array("name" => "Slider Image #3",
                        "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
@@ -260,7 +260,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption #3",
                        "desc" => "Text to overlay on Slider Image #3. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_3",
-                       "type" => "text");
+                       "type" => "textarea");
     
     $options[] = array("name" => "Slider Image #4",
                        "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
@@ -270,7 +270,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption #4",
                        "desc" => "Text to overlay on Slider Image #4. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_4",
-                       "type" => "text");
+                       "type" => "textarea");
     
     $options[] = array("name" => "Slider Image #5",
                        "desc" => 'Add slider image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
@@ -280,7 +280,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Caption #5",
                        "desc" => "Text to overlay on Slider Image #5. Supports basic HTML: <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code>.",
                        "id" => "slider_caption_5",
-                       "type" => "text");
+                       "type" => "textarea");
     
     
     
