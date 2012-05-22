@@ -170,7 +170,6 @@ if (!popshop_on_facebook()) {
     
     
     <div id="thankyouform" class="cf formpage" style="display:none;">
-        <h2>Thank you</h2>
         
         <?php echo popshop_get_option('thankyou_message') ?>
         

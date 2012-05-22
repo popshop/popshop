@@ -173,7 +173,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Thank you Message",
                        "desc" => "Enter a custom thank you message (supports HTML tags) that will appear on the download or streaming page, or as a thank you message in the case of a sample to be sent out by mail. The message will automatically include the order ID and, where appropriate, the download/streaming link.",
                        "id" => "thankyou_message",
-                       "std" => "Thanks.\n\nWe hope you enjoy your free offer.",
+                       "std" => "<h2>Thank you</h2>\n\nThanks. We hope you enjoy your free offer.",
                        "type" => "textarea");
     
     

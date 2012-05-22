@@ -124,19 +124,16 @@ jQuery(document).ready(function($){
         {
             case "free":
                 $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
                 $("#of-option-orderformfields-tab").hide();
                 $("#section-optin, #section-optin_text").hide();
                 break;
             case "share":
                 $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
                 $("#of-option-orderformfields-tab").hide();
                 $("#section-optin, #section-optin_text").hide();
                 break;
             case "contact":
                 $("#of-option-paypal-tab").hide();
-                $("#price").val("FREE");
                 $("#of-option-orderformfields-tab").show();
                 $("#of-option-orderformfields-tab").text('Contact Capture Fields');
                 $("#section-optin, #section-optin_text").show();
