@@ -67,7 +67,7 @@ else {
 
 
 <?php if (popshop_share_button('tweet')): ?>
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
 window.twttr = (function (d,s,id) {var t, js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
 js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);

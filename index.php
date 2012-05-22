@@ -38,8 +38,8 @@ if (!popshop_on_facebook()) {
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('pinit')): ?>
-            <div class="pinitfix"">
-                <a href="http://pinterest.com/pin/create/button/?<?php echo popshop_pinit_data() ?>" rel="nofollow" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+            <div class="pinitfix">
+                <a href="http://pinterest.com/pin/create/button/?<?php echo popshop_pinit_data() ?>" rel="nofollow" class="pin-it-button" count-layout="horizontal"><img src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('linkedin')): ?>
