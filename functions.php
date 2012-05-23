@@ -633,7 +633,7 @@ function popshop_pinit_data()
 {
     // Url-encoded data to pass to the Pinterest button
     
-    $data = array("url" => home_url(),
+    $data = array("url" => home_url("/"),
                   "description" => popshop_get_option("product_name"));
     
     if (popshop_get_option("slider_image_1")) {
