@@ -439,7 +439,7 @@ function optionsframework_options() {
                        "type" => "checkbox");
     
     $options[] = array("name" => "Image shared on Facebook",
-                       "desc" => "Specify Image to be shared on Facebook when users like your Popshop (defaults to your logo, but should be at least 200x200px).",
+                       "desc" => "Specify Image to be shared on Facebook when users like your Popshop. Should be large enough (at least 200x200px) to fit in with the Timeline well. Defaults to your first Slider image.",
                        "id" => "facebook_image",
                        "type" => "upload");
     

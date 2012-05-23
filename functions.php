@@ -533,11 +533,11 @@ function popshop_facebook_image()
     if (popshop_get_option('facebook_image')) {
         return popshop_get_option('facebook_image');
     }
-    else if (popshop_get_option('logo')) {
-        return popshop_get_option('logo');
+    else if (popshop_get_option('slider_image_1')) {
+        return popshop_get_option('slider_image_1');
     }
     else {
-        return "";
+        return get_bloginfo('stylesheet_directory')."/screenshot.png";
     }
 }
 
