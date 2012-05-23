@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
             else {
                 Popshop.facebook = false;
             }
-            Popshop.shop_type = $("#shop_type").text();
+            Popshop.shop_type    = $("#shop_type").text();
             Popshop.payment_type = $("#payment_type").text();
             Popshop.product_type = $("#product_type").text();
         },

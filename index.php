@@ -144,7 +144,7 @@ if (!popshop_on_facebook()) {
             </div>
             <div class="order-column">
                 <form id="orderform-form">
-                    <?php if((popshop_get_option('payment_type') == "contact") || (popshop_get_option('payment_type') == "paypal")): ?>
+                    <?php if((popshop_get_option('payment_type') == "contact") || (popshop_get_option('payment_type') == "paypal") || (popshop_get_option('product_type') == "physical")): ?>
                         <?php echo popshop_orderform_fields() ?>
                         <label class="checkbox">
                             <input type="checkbox" name="terms" required> Accept <a class="linktoterms" href="<?php echo popshop_get_page_link_by_slug('terms') ?>">Terms and Conditions</a>
