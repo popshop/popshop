@@ -98,8 +98,10 @@ if (!popshop_on_facebook()) {
         </div>
         
         <ul class="navmenu">
-            <li><a class="popshop-fb-share" href="#">Share</a></li>
-            <li><a class="popshop-fb-send" href="#">Send</a></li>
+            <?php if(popshop_get_option('facebook_app_id')): /* Only display "Share" and "Send" if Facebook app is set up */ ?>
+                <li><a class="popshop-fb-share" href="#">Share</a></li>
+                <li><a class="popshop-fb-send" href="#">Send</a></li>
+            <?php endif; ?>
             <?php echo popshop_get_navmenu() ?>
             <?php if(!popshop_get_option('hide_popshop_link')): ?>
                 <li><a class="popshop-link" href="http://getpopshop.com" target="_blank" title="Powered by Popshop">Popshop</a></li>
