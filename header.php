@@ -18,6 +18,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo popshop_facebook_url() ?>" />
 <meta property="og:image" content="<?php echo popshop_facebook_image() ?>" />
+<?php if(popshop_get_option('facebook_app_id')): ?>
+<meta property="fb:app_id" content="<?php echo popshop_get_option('facebook_app_id') ?>" />
+<?php endif; ?>
+
 
 <?php if(popshop_get_option('custom_script')): ?>
     <?php echo popshop_get_option('custom_script'); ?>
