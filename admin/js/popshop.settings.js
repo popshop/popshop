@@ -115,6 +115,7 @@ jQuery(document).ready(function($){
                 $("#section-orderform_cta_button").hide();
                 $("#section-thankyou_message").hide();
                 $("#section-optin, #section-optin_text").hide();
+                $("#section-payment_type input[value='free']").attr('checked', 'checked');
                 break;
         }
     };
@@ -162,6 +163,7 @@ jQuery(document).ready(function($){
                 $("#section-video_id").hide();
                 $("#of-option-orderformfields-tab").show();
                 $("#of-option-orderformfields-tab").text('Addressee Fields');
+                $("#section-optin, #section-optin_text").show();
                 break;
         }
     };
