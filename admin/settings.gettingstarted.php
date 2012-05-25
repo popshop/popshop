@@ -6,7 +6,7 @@
     <div class="startbox cf" data-shop="sell">
         <div class="startbox-img sell"></div>
         <div class="startbox-text">Social Sampling</div>
-        <div class="startbox-legend">Offer free stuff for a social share, contact share or just for free</div>
+        <div class="startbox-legend">Offer free stuff for a social share (or for a contact/just for free)</div>
     </div>
     
     <div class="startbox cf" data-shop="link">
@@ -62,14 +62,14 @@
     
     <div class="startbox cf" data-product="video">
         <div class="startbox-img video"></div>
-        <div class="startbox-text">Digital Streaming</div>
-        <div class="startbox-legend">Digital Video: embedded non-indexed YouTube video</div>
+        <div class="startbox-text">Video Streaming</div>
+        <div class="startbox-legend">Hidden (non-indexed) YouTube Video</div>
     </div>
     
     <div class="startbox cf" data-product="physical">
         <div class="startbox-img gift"></div>
-        <div class="startbox-text">Physical</div>
-        <div class="startbox-legend">Product or Sample sent via Mail</div>
+        <div class="startbox-text">Physical Product</div>
+        <div class="startbox-legend">Product Sample sent via Mail</div>
     </div>
     
     <a href="#" class="slide-back" data-slide="#slide-payment_type">Back</a>

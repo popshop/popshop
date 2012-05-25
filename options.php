@@ -82,81 +82,84 @@ function optionsframework_options() {
     
     $options[] = array("name" => "Basic Settings",
                        "type" => "heading");
+                       
+    $options[] = array("desc" => '<em>Okay, so now all we need to do is customise your POPSHOP event page!<br><br>If this is your first time, don\'t panic, it\'s easy - just follow the theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
+    				   "type" => "info");                 
     
-    $options[] = array("name" => "Popshop Header",
-                       "desc" => "Enter the name of your Popshop here.",
+    $options[] = array("name" => "Event Name",
+                       "desc" => "Enter the name of your pop-up event here. This appears as the main title on the page.",
                        "id" => "header",
-                       "std" => "Pop-up Social Sampling Store",
+                       "std" => "My Online Pop-up Event",
                        "type" => "text");
     
-    $options[] = array("name" => "Popshop Sub-Header",
-                       "desc" => "Enter the Sub-Header, such as a description of your Popshop here.",
+    $options[] = array("name" => "Event Description",
+                       "desc" => "A short one line description of your event to appear under the event name.",
                        "id" => "subheader",
-                       "std" => "Get Free Samples for a Social Share",
+                       "std" => "Free Stuff for a Social Share",
                        "type" => "text");
     
-    $options[] = array("name" => "Popshop Logo",
-                       "desc" => "Your brand, product or event logo (160x160px recommended).",
+    $options[] = array("name" => "Event Logo",
+                       "desc" => "If you have a event or product logo, enter it here - if not just use your Facebook Page profile image (160x160px recommended).",
                        "id" => "logo",
                        "type" => "upload");
     
     
-    $options[] = array("name" => "Popshop Callout Box Text",
-                       "desc" => "Enter your call to action here.",
+    $options[] = array("name" => "Call to Action Text",
+                       "desc" => "Enter your call to action here. This appears in the main call to action box below the showcase image slider.",
                        "id" => "main_cta_text",
-                       "std" => "Get an exclusive free preview sample in return for a social share!",
+                       "std" => "FREE FOR A SOCIAL SHARE: SNEAK VIDEO PREVIEW OF OUR UPCOMING RELEASE",
                        "type" => "textarea");
     
-    $options[] = array("name" => "Popshop Callout Box Button Text",
-                       "desc" => "Enter the button text for the callout box.",
+    $options[] = array("name" => "Call to Action Button Text",
+                       "desc" => "Enter the button text for the call to action box.",
                        "id" => "main_cta_button",
                        "std" => "Get This Offer",
                        "type" => "text");
     
-    $options[] = array("name" => "Product Summary",
-                       "desc" => "Enter short summary of the product being ordered. This will appear as the line item on the order form.",
+    $options[] = array("name" => "Sample Summary",
+                       "desc" => "Enter short summary of what you are sampling. This will appear as the line item on the sample order form.",
                        "id" => "product_name",
-                       "std" => "One fabulous sample",
+                       "std" => "One Fabulous Sample",
                        "type" => "text");
     
-    $options[] = array("name" => 'Product Summary Free Offer "Price"',
-                       "desc" => 'Enter the "free" offer price to go next to the product summary on the order form. For example "free for a share", "free for a contact", or just "free"',
+    $options[] = array("name" => 'Sample "Price"',
+                       "desc" => 'Enter the "price" to appear next to the line item; e.g. "free for a share", "free for a contact", or simply "free".',
                        "id" => "price",
                        "std" => "FREE",
                        "type" => "text");
     
-    $options[] = array("name" => "Product Description",
-                       "desc" => "Enter product description (you can also add details of limitations, such as offer eligibility).",
+    $options[] = array("name" => "Sample Description",
+                       "desc" => "Enter a full description of what you are sampling (you can also add details of limitations, such as offer eligibility).",
                        "id" => "offer_details",
-                       "std" => "PRODUCT DESCRIPTION\n\nAenean lacinia bibendum nulla sed consectetur.",
+                       "std" => "DESCRIPTION\n\nOur latest and greatest production.",
                        "type" => "textarea");
     
     $options[] = array("name" => "Order/Download Button Text",
-                       "desc" => "Enter the button text for the order/download form.",
+                       "desc" => "Enter the button text on the order/download form.",
                        "id" => "orderform_cta_button",
                        "std" => "Order",
                        "type" => "text");
     
     
-    $options[] = array("name" => "Popshop Callout Button URL Link",
-                       "desc" => "Enter the URL of the web page that you want the button to link to.",
+    $options[] = array("name" => "Call to Action Button URL Link",
+                       "desc" => "Enter the URL of the web page to which you'd like the button to link.",
                        "id" => "external_url",
                        "std" => "http://getpopshop.com/",
                        "type" => "text");
     
     $options[] = array("name" => "File to Download",
-                       "desc" => 'Upload the file (.pdf or .zip) to be downloaded here (upload and select "use this image" - you may have to select "File URL"). To increase maximum upload file size see <a href="http://wordpress.org/search/increase+file+size">http://wordpress.org/search/increase+file+size</a>',
+                       "desc" => 'Upload the file to be downloaded here (.pdf or .zip). You can also paste in a URL for a file. <br><br>To increase WP maximum upload file size see <a href="http://wordpress.org/search/increase+file+size">http://wordpress.org/search/increase+file+size</a>.',
                        "id" => "file_to_download",
                        "type" => "upload");
     
     $options[] = array("name" => "Unlisted (Hidden) YouTube Video to Stream",
-                       "desc" => 'Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.<br><br>For details on how to upload unlisted YouTube videos, see <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=181547">YouTube support</a>.',
+                       "desc" => 'Enter the YouTube video ID of your unlisted (hidden) YouTube video; this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.<br><br>For details on how to upload unlisted YouTube videos, see <a href="http://support.google.com/youtube/bin/answer.py?hl=en&answer=181547">YouTube support</a>.',
                        "id" => "video_id",
                        "std" => "zK4OpiLmReQ",
                        "type" => "text");
     
     
-    $options[] = array("name" => "Activate Opt-in Email Marketing?",
+    $options[] = array("name" => "Activate Opt-in for Email Marketing?",
                        "desc" => "Select if you want to collect opt-ins for email marketing and set the opt-in question",
                        "id" => "optin",
                        "std" => '1',
@@ -171,9 +174,9 @@ function optionsframework_options() {
                        "type" => "text");
     
     $options[] = array("name" => "Thank you Message",
-                       "desc" => "Enter a custom thank you message (supports HTML tags) that will appear on the download or streaming page, or as a thank you message in the case of a sample to be sent out by mail. The message will automatically include the order ID and, where appropriate, the download/streaming link.",
+                       "desc" => "Enter a custom thank you message (supports html tags)<br><br>Message automatically includes order ID and (where appropriate) download/streaming link.",
                        "id" => "thankyou_message",
-                       "std" => "<h2>Thank you</h2>\n\nThanks. We hope you enjoy your free offer.",
+                       "std" => "<h2>Thanks!</h2>\n\nThanks. We hope you enjoy your free offer.",
                        "type" => "textarea");
     
     
@@ -182,8 +185,11 @@ function optionsframework_options() {
     $options[] = array("name" => "Slider Settings",
                        "type" => "heading");
     
+    $options[] = array("desc" => '<em>Need help? Checkout the online theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
+    				   "type" => "info");
+    
     $options[] = array("name" => "Slider Mode",
-                       "desc" => "Do you want to showcase your product with a series of captioned images (slideshow mode) or with an embedded YouTube video?",
+                       "desc" => "Use images or video to showcase?",
                        "id" => "cover_type",
                        "class" => "greybg",
                        "std" => "slider",
@@ -200,13 +206,13 @@ function optionsframework_options() {
                                           "slide" => "Slide"));
     
     $options[] = array("name" => "Slide Transitions (Speed)",
-                       "desc" => "Select transition speed for slides, in milliseconds (if you have more than one slide).",
+                       "desc" => "Select transition speed for slides, in milliseconds (7000 = 7 seconds).",
                        "id" => "slider_animation_speed",
                        "std" => "7000",
                        "type" => "text");
     
     $options[] = array("name" => "Slide Caption Style",
-                       "desc" => "Choose whether you want your caption background to be Dark (default, good for most pictures) or Light (good for light images). The default transparency is 50%. The CSS element for this is <code>.flex-caption</code>.",
+                       "desc" => "If you're using captions for images, select style. Dark background with light text works best for most images, except for very light images.<br><br>The default transparency is 50%. The CSS element for this is <code>.flex-caption</code>.",
                        "id" => "slider_caption_style",
                        "std" => "dark-caption",
                        "type" => "radio",
@@ -214,7 +220,7 @@ function optionsframework_options() {
                                           "light-caption" => "Light Background, Dark Text"));
     
     $options[] = array("name" => "Slide Caption Position",
-                       "desc" => "Select where you'd like to position the text on your slides. Top Full Width spans the top of the slides, Right Full length is a full length column flush right and 265 pixels wide. The CSS element for this is <code>.flex-caption</code>.",
+                       "desc" => "Choose where want the text on your slides - full width accross the top or full length column (flush right - 265px).<br><br>The CSS element for this is <code>.flex-caption</code>.",
                        "id" => "slider_caption_position",
                        "std" => "top",
                        "type" => "radio",
@@ -285,20 +291,20 @@ function optionsframework_options() {
     
     
     $options[] = array("name" => "Video Position",
-                       "desc" => "Choose where you want to position the video - in the centre, or offset to centre-right (balanced with logo). The CSS element for this is <code>.covervideo .media</code>.",
+                       "desc" => "Choose where you want to position the video - centred or centre-right.<br><br>The CSS element for this is <code>.covervideo .media</code>.",
                        "id" => "covervideo_position",
                        "std" => "right",
                        "type" => "radio",
                        "options" => array("center"  => "Centre", 
                                           "right"   => "Centre-Right"));
     
-    $options[] = array("name" => "Video Background image (Optional)",
+    $options[] = array("name" => "Video Background Image (Optional)",
                        "desc" => 'Add video background image here (810x315px). Larger images will be resized correctly if you select "medium" size on WordPress image uploader.',
                        "id" => "covervideo_image",
                        "type" => "upload");
     
     $options[] = array("name" => "Youtube Video ID",
-                       "desc" => "Enter the YouTube video ID of your unlisted (hidden) Youtube video, this is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.",
+                       "desc" => "Enter the YouTube 'video ID' of a YouTube video (inlcuding unlisted 'hidden' video IDs.<br><br>This is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.",
                        "id" => "covervideo_id",
                        "std" => "5Giw8rKT4Dg",
                        "type" => "text");
@@ -306,16 +312,19 @@ function optionsframework_options() {
     
     /* New Tab */
     
-    $options[] = array("name" => "Order Form Fields",
+    $options[] = array("name" => "Contact Form",
                        "type" => "heading");
     
-    $options[] = array("name" => "Order Form Fields Generator",
-                       "desc" => 'These are the fields that your customers will have to fill in on the Order Form. You can customize them and reorder them to fit your use case best. Only the Email field is required on your part, but all fields will be required on your users part. You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>In the case of physical orders and if you only ship in one country, you can specify the country using a Title element below the address fields.',
+    $options[] = array("desc" => '<em>Need help? Checkout the online theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
+    				   "type" => "info");
+    				   
+    $options[] = array("name" => "Contact Form Generator",
+                       "desc" => 'Use this to customize the contact form for lead marketing and/or delivery of physical samples.<br><br>You can add, delete (except email) and reorder fields, and users must complete all fields.<br><br>You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>Tip: For restricting physical samples to a predefined country, specify the country, add and complete a Title field as the last element on the form.',
                        "id" => "orderform_fields",
-                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]',
+                       "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"USA"}]',
                        "type" => "textarea");
     
-    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"Country"}]</div>',
+    $options[] = array("desc" => '<div id="orderform_fields_physical">[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"USA"}]</div>',
                        "class" => "hidden",
 					   "type" => "info");
     
@@ -331,13 +340,16 @@ function optionsframework_options() {
     $options[] = array("name" => "Advanced Settings",
                        "type" => "heading");
     
+    $options[] = array("desc" => '<em>Need help? Checkout the online theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
+    				   "type" => "info");
+    				   
     $options[] = array("name" => "Background Image",
-                       "desc" => "Background Image that will be stretched to Fullscreen when your Popshop is viewed outside Facebook.",
+                       "desc" => "Full screen background image for your pop-up event (only visible outside Facebook).",
                        "id" => "background_image",
                        "type" => "upload");
     
     $options[] = array("name" => "Background Image Raster Effect",
-                       "desc" => "Do you want to apply a raster effect on your Background Image?",
+                       "desc" => "Do you want to apply a raster effect on your Background Image (hides pixelisation on large screens)?",
                        "id" => "background_raster",
                        "std" => '0',
                        "type" => "radio",
@@ -347,16 +359,16 @@ function optionsframework_options() {
     
     
     $options[] = array("name" => "Share Buttons",
-                       "desc" => "Select which Sharing Buttons you want to enable.",
+                       "desc" => "Select which Sharing Buttons you want to enable. NB. Pinterest button works, but Pinterest deos not confirm if user has actually shared",
                        "id" => "share_buttons",
-                       "std" => array("like" => "1", "tweet" => "1", "plusone" => "1", "pinit" => "1", "linkedin" => "1"),
+                       "std" => array("like" => "1", "tweet" => "1", "plusone" => "1", "pinit" => "0", "linkedin" => "1"),
                        "type" => "multicheck",
-                       "options" => array("like" => "Like", "tweet" => "Tweet", "plusone" => "Google +1", "pinit" => "Pin It", "linkedin" => "LinkedIn Share"));
+                       "options" => array("like" => "Like", "tweet" => "Tweet", "plusone" => "Google +1", "pinit" => "Pinterest", "linkedin" => "LinkedIn Share"));
     
     
     
     $options[] = array("name" => "Custom CSS",
-                       "desc" => "Any custom CSS you paste here will be added to your Popshop.",
+                       "desc" => "Any custom CSS you paste here will be added to your POPSHOP pop-up event.",
                        "id" => "custom_css",
                        "std" => "",
                        "type" => "textarea");
@@ -368,7 +380,7 @@ function optionsframework_options() {
                        "type" => "textarea");
     
     $options[] = array("name" => "Video embed default code (Slider Video)",
-                       "desc" => "This is the default embed code from Youtube. Only modify if you know what you're doing!",
+                       "desc" => "This is the default embed code generated by YouTube. Only modify if you know what you're doing!",
                        "id" => "video_embed_code",
                        "std" => '<iframe id="player" width="370" height="218" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
                        "type" => "textarea");
@@ -378,15 +390,15 @@ function optionsframework_options() {
     // opaque is less resource-intensive than transparent
     
     $options[] = array("name" => "Video embed default code (Digital Streaming)",
-                       "desc" => "This is the default embed code from Youtube. Only modify if you know what you're doing!",
+                       "desc" => "This is the default embed code generated by YouTube. Only modify if you know what you're doing!",
                        "id" => "video_embed_code_2",
                        "std" => '<iframe id="player" width="710" height="391" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
                        "type" => "textarea");
     
-    $options[] = array("name" => "Hide Popshop link in the Navigation menu",
+    $options[] = array("name" => "Hide POPSHOP link in the Navigation menu",
                        "desc" => "Check this box if you wish not to display the Popshop link in your Navigation menu.",
                        "id" => "hide_popshop_link",
-                       "std" => "0",
+                       "std" => "1",
                        "type" => "checkbox");
     
     $options[] = array("name" => "Stats Reporting",
@@ -407,7 +419,7 @@ function optionsframework_options() {
                        "type" => "heading");
     
     
-    $options[] = array("desc" => 'Please read the documentation about Facebook integration <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.',
+    $options[] = array("desc" => '<em>Need help? Checkout the online documentation <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
 					   "type" => "info");
     
     $options[] = array("name" => "Your Facebook application ID",
