@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Popshop - <?php echo popshop_get_option('header') ?></title>
+<title>POPSHOP - <?php echo popshop_get_option('header') ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 <style>
