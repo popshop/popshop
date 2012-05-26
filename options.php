@@ -89,7 +89,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Event Name",
                        "desc" => "Enter the name of your pop-up event here. This appears as the main title on the page.",
                        "id" => "header",
-                       "std" => "My Online Pop-up Event",
+                       "std" => "My Pop-up Launch Event",
                        "type" => "text");
     
     $options[] = array("name" => "Event Description",
@@ -107,7 +107,7 @@ function optionsframework_options() {
     $options[] = array("name" => "Call to Action Text",
                        "desc" => "Enter your call to action here. This appears in the main call to action box below the showcase image slider.",
                        "id" => "main_cta_text",
-                       "std" => "FREE FOR A SOCIAL SHARE: SNEAK VIDEO PREVIEW OF OUR UPCOMING RELEASE",
+                       "std" => "FREE FOR A SOCIAL SHARE: SNEAK PREVIEW OF OUR UPCOMING RELEASE",
                        "type" => "textarea");
     
     $options[] = array("name" => "Call to Action Button Text",
