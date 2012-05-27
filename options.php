@@ -86,7 +86,7 @@ function optionsframework_options() {
     $options[] = array("desc" => '<em>Okay, so now all we need to do is customise your POPSHOP event page!<br><br>If this is your first time, don\'t panic, it\'s easy - just follow the theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
     				   "type" => "info");                 
     
-    $options[] = array("name" => "Event Name",
+    $options[] = array("name" => "Pop-up Event Name",
                        "desc" => "Enter the name of your pop-up event here. This appears as the main title on the page.",
                        "id" => "header",
                        "std" => "My Pop-up Launch Event",
@@ -116,20 +116,20 @@ function optionsframework_options() {
                        "std" => "Get This Offer",
                        "type" => "text");
     
-    $options[] = array("name" => "Sample Summary",
-                       "desc" => "Enter short summary of what you are sampling. This will appear as the line item on the sample order form.",
+    $options[] = array("name" => "Offer Summary",
+                       "desc" => "Enter short summary of what you are sampling. This will appear as the line item on the order form.",
                        "id" => "product_name",
                        "std" => "One Fabulous Sample",
                        "type" => "text");
     
-    $options[] = array("name" => 'Sample "Price"',
+    $options[] = array("name" => 'Offer "Price"',
                        "desc" => 'Enter the "price" to appear next to the line item; e.g. "free for a share", "free for a contact", or simply "free".',
                        "id" => "price",
                        "std" => "FREE",
                        "type" => "text");
     
-    $options[] = array("name" => "Sample Description",
-                       "desc" => "Enter a full description of what you are sampling (you can also add details of limitations, such as offer eligibility).",
+    $options[] = array("name" => "Offer Description",
+                       "desc" => "Enter a fuller description of what you are sampling (you can also add details of limitations, such as offer eligibility).",
                        "id" => "offer_details",
                        "std" => "DESCRIPTION\n\nOur latest and greatest production.",
                        "type" => "textarea");
@@ -173,7 +173,7 @@ function optionsframework_options() {
                        "std" => "Sign me up to receive news, exclusives and offers.",
                        "type" => "text");
     
-    $options[] = array("name" => "Thank you Message",
+    $options[] = array("name" => "Thanks Message",
                        "desc" => "Enter a custom thank you message (supports html tags)<br><br>Message automatically includes order ID and (where appropriate) download/streaming link.",
                        "id" => "thankyou_message",
                        "std" => "<h2>Thanks!</h2>\n\nThanks. We hope you enjoy your free offer.",
@@ -184,9 +184,6 @@ function optionsframework_options() {
     
     $options[] = array("name" => "Slider Settings",
                        "type" => "heading");
-    
-    $options[] = array("desc" => '<em>Need help? Checkout the online theme documentation  <a href="http://getpopshop.com/documentation#facebook" target="_blank">here</a>.</em>',
-    				   "type" => "info");
     
     $options[] = array("name" => "Slider Mode",
                        "desc" => "Use images or video to showcase?",
@@ -304,7 +301,7 @@ function optionsframework_options() {
                        "type" => "upload");
     
     $options[] = array("name" => "Youtube Video ID",
-                       "desc" => "Enter the YouTube 'video ID' of a YouTube video (inlcuding unlisted 'hidden' video IDs.<br><br>This is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.",
+                       "desc" => "Enter the YouTube 'video ID' of a YouTube video (inlcuding unlisted 'hidden' video IDs).<br><br>This is the code that appears after <code>v=</code> in the YouTube URL. For example: <code>www.youtube.com/watch?v=SfqpAWPx6T4</code>, the YouTube ID is <code>SfqpAWPx6T4</code>.",
                        "id" => "covervideo_id",
                        "std" => "5Giw8rKT4Dg",
                        "type" => "text");
@@ -319,7 +316,7 @@ function optionsframework_options() {
     				   "type" => "info");
     				   
     $options[] = array("name" => "Contact Form Generator",
-                       "desc" => 'Use this to customize the contact form for lead marketing and/or delivery of physical samples.<br><br>You can add, delete (except email) and reorder fields, and users must complete all fields.<br><br>You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Pay with a Contact"-type form.<br><br>Tip: For restricting physical samples to a predefined country, specify the country, add and complete a Title field as the last element on the form.',
+                       "desc" => 'Use this to customize the contact form for lead marketing and/or delivery of physical samples.<br><br>You can add, delete (except email) and reorder fields, and users must complete all fields.<br><br>You can check <a href="#" class="orderform_fields_example" data-example="physical">this example</a> for a Physical Product, or <a href="#" class="orderform_fields_example" data-example="contact">this one</a> for "Free for a Contact"-type form.<br><br>Tip: For restricting physical samples to a predefined country, specify the country, add and complete a Title field as the last element on the form.',
                        "id" => "orderform_fields",
                        "std" => '[{"type":"h3","content":"Your Details"},{"type":"text","placeholder":"First Name","name":"customer[firstname]"},{"type":"text","placeholder":"Last Name","name":"customer[lastname]"},{"type":"email","placeholder":"Email Address","name":"email"},{"type":"h3","content":"Address"},{"type":"text","placeholder":"Address","name":"customer[address]"},{"type":"text","placeholder":"City","name":"customer[city]"},{"type":"text","placeholder":"Post Code","name":"customer[postcode]"},{"type":"h3","content":"USA"}]',
                        "type" => "textarea");
@@ -373,13 +370,13 @@ function optionsframework_options() {
                        "std" => "",
                        "type" => "textarea");
     
-    $options[] = array("name" => "Google Analytics tracking script",
+    $options[] = array("name" => "Tracking Code",
                        "desc" => "Add your Google Analytics tracking code script here (including the <code>&lt;script&gt;&lt;/script&gt;</code> tags).",
                        "id" => "custom_script",
                        "std" => "",
                        "type" => "textarea");
     
-    $options[] = array("name" => "Video embed default code (Slider Video)",
+    $options[] = array("name" => "Video Embed Editor (Slider Video)",
                        "desc" => "This is the default embed code generated by YouTube. Only modify if you know what you're doing!",
                        "id" => "video_embed_code",
                        "std" => '<iframe id="player" width="370" height="218" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
@@ -389,7 +386,7 @@ function optionsframework_options() {
     // @see http://stackoverflow.com/questions/886864/differences-between-using-wmode-transparent-opaque-or-window-for-an-embe
     // opaque is less resource-intensive than transparent
     
-    $options[] = array("name" => "Video embed default code (Digital Streaming)",
+    $options[] = array("name" => "Video Editor (Video Streaming)",
                        "desc" => "This is the default embed code generated by YouTube. Only modify if you know what you're doing!",
                        "id" => "video_embed_code_2",
                        "std" => '<iframe id="player" width="710" height="391" src="http://www.youtube.com/embed/VIDEO_ID?wmode=opaque&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>',
@@ -402,7 +399,7 @@ function optionsframework_options() {
                        "type" => "checkbox");
     
     $options[] = array("name" => "Stats Reporting",
-                       "desc" => "Popshop aggregates anonymized stats, which enable us to know how many sites are running Popshop and how their users are interacting with it. 
+                       "desc" => "POPSHOP aggregates anonymized stats, which enable us to know how many sites are running Popshop and how their users are interacting with it. 
                                   This data will help us decide how to best evolve the project and prioritize new developments.
                                   To opt-out, please check this box.",
                        "id" => "stats_report_optout",
@@ -445,13 +442,13 @@ function optionsframework_options() {
     
     
     $options[] = array("name" => "Redirect all HTTP traffic to HTTPS",
-                       "desc" => "If you have a SSL certificate set up (strongly advised if you set up a Page Tab on Facebook), please check this box so that all HTTP traffic is redirected to HTTPS.<br>Checking this is useful when you have SSL enabled because it means all traffic will view the same secure page, making your share button count more reliable.",
+                       "desc" => "If you have a SSL certificate set up (strongly advised if you set up a Page Tab on Facebook), please check this box so that all HTTP traffic is redirected to HTTPS. (This makes sure your share button counters work properly, since everyone sees your pop-up event on the same URL).",
                        "id" => "force_https",
                        "std" => "0",
                        "type" => "checkbox");
     
-    $options[] = array("name" => "Image shared on Facebook",
-                       "desc" => "Specify Image to be shared on Facebook when users like your Popshop. Should be large enough (at least 200x200px) to fit in with the Timeline well. Defaults to your first Slider image.",
+    $options[] = array("name" => "Custom Image Shared on Facebook (Optional)",
+                       "desc" => "Specify Image to be shared on Facebook when users 'like' your POPSHOP event. Should be large enough (at least 200x200px) to fit in with the Timeline well. Defaults to your first Slider image.",
                        "id" => "facebook_image",
                        "type" => "upload");
     
