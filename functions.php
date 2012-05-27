@@ -117,14 +117,14 @@ function popshop_activation() {
             // CREATE DUMMY CONTENT
             if (!get_page_by_path('about')) {
                 wp_insert_post(array('post_title' => 'About',
-                                     'post_content' => "It's just mind-blowingly awesome. I apologize, and I wish I was more articulate, but it's hard to be articulate when your mind's blown - but in a very good way.",
+                                     'post_content' => "This is a custom WordPress page called About and can be edited form the main WordPress admin menu - Pages - All Pages - Edit Page.<br><br>You can also add or remove this and other items from the menu of your POPSHOP using the main WordPress menu - Appearance - Menus.",
                                      'post_name' => 'about',
                                      'post_status' => 'publish',
                                      'post_type' => 'page'));
             }
             if (!get_page_by_path('contact')) {
                 wp_insert_post(array('post_title' => 'Contact',
-                                     'post_content' => "I saw for the first time the earth's shape. I could easily see the shores of continents, islands, great rivers, folds of the terrain, large bodies of water. The horizon is dark blue, smoothly turning to black... the feelings which filled me I can express with one word - joy.",
+                                     'post_content' => "This is a custom WordPress page called Contact and can be edited form the main WordPress admin menu - Pages - All Pages - Edit Page.<br><br>You can also add or remove this and other items from the menu of your POPSHOP using the main WordPress menu - Appearance - Menus.",
                                      'post_name' => 'contact',
                                      'post_status' => 'publish',
                                      'post_type' => 'page'));
@@ -138,7 +138,7 @@ function popshop_activation() {
             }
             if (!get_page_by_path('terms')) {
                 wp_insert_post(array('post_title' => 'Terms and Conditions',
-                                     'post_content' => "Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.",
+                                     'post_content' => "This is a custom WordPress page called Terms and Conditions and can be edited form the main WordPress admin menu - Pages - All Pages - Edit Page.<br><br>You can also add or remove this from the menu of your POPSHOP using the main WordPress menu - Appearance - Menus..",
                                      'post_name' => 'terms',
                                      'post_status' => 'publish',
                                      'post_type' => 'page'));
