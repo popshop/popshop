@@ -14,14 +14,14 @@
 
 <!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
 
-<meta property="og:title" content="<?php echo addslashes(popshop_get_option('header')) ?>" />
+<meta property="og:title" content="<?php echo popshop_get_option('header') ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo popshop_facebook_url() ?>" />
 <meta property="og:image" content="<?php echo popshop_facebook_image() ?>" />
 <?php if(popshop_get_option('facebook_app_id')): ?>
 <meta property="fb:app_id" content="<?php echo popshop_get_option('facebook_app_id') ?>" />
 <?php endif; ?>
-<meta property="og:description" content="<?php echo addslashes(popshop_get_option('main_cta_text')) ?>" />
+<meta property="og:description" content="<?php echo popshop_get_option('main_cta_text') ?>" />
 
 <?php if(popshop_get_option('custom_script')): ?>
     <?php echo popshop_get_option('custom_script'); ?>
