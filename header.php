@@ -21,7 +21,7 @@
 <?php if(popshop_get_option('facebook_app_id')): ?>
 <meta property="fb:app_id" content="<?php echo popshop_get_option('facebook_app_id') ?>" />
 <?php endif; ?>
-
+<meta property="og:description" content="<?php echo popshop_get_option('main_cta_text') ?>" />
 
 <?php if(popshop_get_option('custom_script')): ?>
     <?php echo popshop_get_option('custom_script'); ?>
