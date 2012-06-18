@@ -97,6 +97,12 @@ function optionsframework_options() {
                        "id" => "subheader",
                        "std" => "Free Stuff for a Social Share",
                        "type" => "text");
+
+    $options[] = array("name" => "URL To Share",
+                       "desc" => "Enter the URL you want users to share when they use the social sharing buttons",
+                       "id" => "share_url",
+                       "std" => get_bloginfo('url'),
+                       "type" => "text");
     
     $options[] = array("name" => "Event Logo",
                        "desc" => "If you have a event or product logo, enter it here - if not just use your Facebook Page profile image (160x160px recommended).",
@@ -133,13 +139,18 @@ function optionsframework_options() {
                        "id" => "offer_details",
                        "std" => "DESCRIPTION\n\nOur latest and greatest production.",
                        "type" => "textarea");
+
+    $options[] = array("name" => "Order Form Title",
+                       "desc" => "Change the title of the 'Order' form",
+                       "id" => "order_form_title",
+                       "std" => "Order",
+                       "type" => "text"); 
     
     $options[] = array("name" => "Order/Download Button Text",
                        "desc" => "Enter the button text on the order/download form.",
                        "id" => "orderform_cta_button",
                        "std" => "Order",
                        "type" => "text");
-    
     
     $options[] = array("name" => "Call to Action Button URL Link",
                        "desc" => "Enter the URL of the web page to which you'd like the button to link.",
@@ -178,7 +189,28 @@ function optionsframework_options() {
                        "id" => "thankyou_message",
                        "std" => "<h2>Thanks!</h2>\n\nThanks. We hope you enjoy your free offer.",
                        "type" => "textarea");
-    
+                       
+
+                       
+    $options[] = array("name" => "Item Label Text",
+                       "desc" => "Change the 'Item' label at the top of the order form",
+                       "id" => "item_label",
+                       "std" => "Item",
+                       "type" => "text");                      
+
+    $options[] = array("name" => "Total Label Text",
+                       "desc" => "Change the 'Total' label at the top of the order form",
+                       "id" => "total_label",
+                       "std" => "Total",
+                       "type" => "text");  
+                            
+    $options[] = array("name" => "Share Gate Message",
+                       "desc" => "Change the call to action message on the share gate",
+                       "id" => "share_gate_msg",
+                       "std" => "You need to share this page first! Please use one of the Share buttons above.",
+                       "type" => "text"); 
+
+
     
     /* New Tab */
     
@@ -439,14 +471,7 @@ function optionsframework_options() {
                        "std" => "",
                        "class" => "hidden",
                        "type" => "text");
-    
-    
-    $options[] = array("name" => "Redirect all HTTP traffic to HTTPS",
-                       "desc" => "If you have a SSL certificate set up (strongly advised if you set up a Page Tab on Facebook), please check this box so that all HTTP traffic is redirected to HTTPS. (This makes sure your share button counters work properly, since everyone sees your pop-up event on the same URL).",
-                       "id" => "force_https",
-                       "std" => "0",
-                       "type" => "checkbox");
-    
+        
     $options[] = array("name" => "Custom Image Shared on Facebook (Optional)",
                        "desc" => "Specify Image to be shared on Facebook when users 'like' your POPSHOP event. Should be large enough (at least 200x200px) to fit in with the Timeline well. Defaults to your first Slider image.",
                        "id" => "facebook_image",

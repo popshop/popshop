@@ -140,7 +140,6 @@ jQuery(document).ready(function($){
         if (Popshop.payment_type == "share" && !Popshop.shared) {
             // Share Gate activated and user has not shared yet.
             $("#morecontent").show();
-            $("#morecontent-inner").html('You need to share this page first! Please use one of the Share buttons above.');
             return;
         }
         $("#morecontent").hide();
@@ -205,6 +204,13 @@ jQuery(document).ready(function($){
                         $("#thankyou_order_id").text(code);
                         $("#orderform").hide();
                         $("#thankyouform").show();
+                        
+                        if ($("#file_to_download").text()) { 
+                        
+                        parent.window.location = $("#file_to_download").text();
+                        
+                        }
+                        
                     }
                 }
             });
@@ -214,7 +220,7 @@ jQuery(document).ready(function($){
     
     
     $("#file_to_download-cta").click(function(){
-        window.location = $("#file_to_download").text();
+        parent.window.location = $("#file_to_download").text();  
     });
     
     
@@ -251,15 +257,16 @@ window.fbAsyncInit = function() {
 function popshop_tweet(event) {
     Popshop.shared = true;
     Popshop.insertIntent('tweet', event.data);
+    $('#main-cta').click();
     // Unfortunately, event.data is empty
     // @see http://dev.twitter.com/discussions/304
 }
 
 // @see https://developers.google.com/+/plugins/+1button/
 function popshop_plusone(data) {
-    console.log(data);
     Popshop.shared = true;
     Popshop.insertIntent('plusone');
+    jQuery('#main-cta').click();
 }
 
 // @see https://developer.linkedin.com/share-plugin-reference
@@ -267,6 +274,7 @@ function popshop_plusone(data) {
 function popshop_linkedin() {
     Popshop.shared = true;
     Popshop.insertIntent('linkedin');
+    jQuery('#main-cta').click();
 }
 
 // Fake event support for the "Pin it" button,
@@ -274,6 +282,7 @@ function popshop_linkedin() {
 jQuery(document).ready(function($){
     $(".pinitfix").hover(function(){
         Popshop.shared = true;
+        jQuery('#main-cta').click();
         // Popshop.insertIntent('pinit');
         // Commented out because it's not reliable at all.
     });

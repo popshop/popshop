@@ -255,8 +255,9 @@ function popshop_force_https()
         if (popshop_get_option('force_https')) {
             if (!is_ssl()) {
                 $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                wp_redirect($url);
-                exit;
+                // wp_redirect($url);
+                // exit;
+                // Old PHP redirect was iframe only and broke Facebook signed_request
             }
         }
     }
@@ -511,7 +512,7 @@ function popshop_on_facebook()
 {
     // @see  http://stackoverflow.com/questions/5587784/how-can-i-find-out-what-page-has-installed-my-facebook-canvas-app
     // We could use the Facebook PHP SDK, but this seems overkill for just this.
-    
+
     if (isset($_REQUEST["signed_request"])) {
         $signed_request = $_REQUEST["signed_request"];
         list($encoded_sig, $payload) = explode('.', $signed_request, 2);
@@ -633,7 +634,7 @@ function popshop_pinit_data()
 {
     // Url-encoded data to pass to the Pinterest button
     
-    $data = array("url" => home_url("/"),
+    $data = array("url" => popshop_get_option("share_url"),
                   "description" => popshop_get_option("product_name"));
     
     if (popshop_get_option("slider_image_1")) {
