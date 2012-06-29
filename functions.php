@@ -511,9 +511,7 @@ function popshop_on_facebook()
 {
     // @see  http://stackoverflow.com/questions/5587784/how-can-i-find-out-what-page-has-installed-my-facebook-canvas-app
     // We could use the Facebook PHP SDK, but this seems overkill for just this.
-  
-  echo $_SERVER['HTTP_REFERER']; echo 'ok'; 
-  
+    
   print_r($_REQUEST["signed_request"]);
       
     if (isset($_REQUEST["signed_request"])) {
