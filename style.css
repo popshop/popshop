@@ -80,6 +80,7 @@ float:left;
 float:right;
 margin-top:14px;
 height:25px;
+clear:both;
 }
 
 .social > div {
