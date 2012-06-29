@@ -221,7 +221,7 @@ jQuery(document).ready(function($){
     
     
     $("#file_to_download-cta").click(function(){
-        parent.window.location = $("#file_to_download").text(); 
+        parent.window.location = $("#file_to_download").text();  
     });
     
     
