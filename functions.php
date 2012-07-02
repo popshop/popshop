@@ -255,7 +255,7 @@ function popshop_force_https()
         if (popshop_get_option('force_https')) {
             if (!is_ssl()) {
                 $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                // wp_redirect($url);
+                // wp_redirect($url); 
                 exit;
             }
         }
