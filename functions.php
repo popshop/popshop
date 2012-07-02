@@ -257,7 +257,10 @@ function popshop_force_https()
                 $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                 // wp_redirect($url);
                 // Old PHP redirect was iframe only and broke Facebook signed_request
-                echo "<script>window.top.location.href = '".$url."';<script>";
+                echo '<script>
+                if (window.location.protocol != "https:")
+                window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+                <script>';
                 exit;
             }
         }
@@ -513,7 +516,7 @@ function popshop_on_facebook()
 {
     // @see  http://stackoverflow.com/questions/5587784/how-can-i-find-out-what-page-has-installed-my-facebook-canvas-app
     // We could use the Facebook PHP SDK, but this seems overkill for just this.
-print_r($_REQUEST["signed_request"]);
+
     if (isset($_REQUEST["signed_request"])) {
         $signed_request = $_REQUEST["signed_request"];
         list($encoded_sig, $payload) = explode('.', $signed_request, 2);
