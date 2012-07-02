@@ -256,14 +256,8 @@ function popshop_force_https()
             if (!is_ssl()) {
                 $url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                 // wp_redirect($url);
+                // exit;
                 // Old PHP redirect was iframe only and broke Facebook signed_request
-                echo '<html><body>
-                <script>
-                if (window.location.protocol != "https:") {
-                window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-                }
-                <script></body></html>';
-                exit;
             }
         }
     }
