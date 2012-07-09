@@ -140,7 +140,6 @@ jQuery(document).ready(function($){
         if (Popshop.payment_type == "share" && !Popshop.shared) {
             // Share Gate activated and user has not shared yet.
             $("#morecontent").show();
-            $("#morecontent-inner").html('You need to share this page first! Please use one of the Share buttons above.');
             return;
         }
         $("#morecontent").hide();
