@@ -80,27 +80,27 @@ if (!popshop_on_facebook()) {
             <?php /* @todo: Widgetize? */ ?>
             <?php if (popshop_share_button('like')): ?>
             <div class="likefix">
-                <div class="fb-like" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false" data-url="<?php echo popshop_get_option('share_url'); ?>"></div>
+                <div class="fb-like" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false" href="<?php echo popshop_get_option('share_url'); ?>"></div>
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('tweet')): ?>
             <div class="tweetfix">
-                <a href="https://twitter.com/share" rel="nofollow" class="twitter-share-button" tw:url="<?php echo popshop_get_option('share_url'); ?>">"></a>
+                <a href="https://twitter.com/share" rel="nofollow" class="twitter-share-button" data-url="<?php echo popshop_get_option('share_url'); ?>">"></a>
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('plusone')): ?>
             <div>
-                <div class="g-plusone" data-size="medium" data-callback="popshop_plusone" data-url="<?php echo popshop_get_option('share_url'); ?>">"></div>
+                <div class="g-plusone" data-size="medium" data-callback="popshop_plusone" data-href="<?php echo popshop_get_option('share_url'); ?>"></div>
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('pinit')): ?>
             <div class="pinitfix">
-                <a href="http://pinterest.com/pin/create/button/?<?php echo popshop_pinit_data() ?>" rel="nofollow" class="pin-it-button" count-layout="horizontal" always-show-count="1"><img style="border:0;" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" data-url="<?php echo popshop_get_option('share_url'); ?>">" /></a>
+                <a href="http://pinterest.com/pin/create/button/?<?php echo popshop_pinit_data() ?>" rel="nofollow" class="pin-it-button" count-layout="horizontal" always-show-count="1"><img style="border:0;" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
             </div>
             <?php endif; ?>
             <?php if (popshop_share_button('linkedin')): ?>
             <div class="linkedinfix">
-                <script type="IN/Share" data-onsuccess="popshop_linkedin" data-counter="right" data-showzero="true"></script>
+                <script type="IN/Share" data-onsuccess="popshop_linkedin" data-counter="right" data-showzero="true" data-url="<?php echo popshop_get_option('share_url'); ?>"></script>
             </div>
             <?php endif; ?>
         </div>
