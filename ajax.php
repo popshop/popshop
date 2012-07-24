@@ -8,7 +8,17 @@ include_once('../../../wp-load.php');
 
 require_once (TEMPLATEPATH . '/schema.php');
 
-
+switch ($_POST['action']) {
+    case 'confirmation_email':
+    
+    $headers = 'From: ' . get_bloginfo('name') . ' <'.get_settings('admin_email') . '>' . "\r\n";
+    add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
+    wp_mail( $_POST['email'], $_POST['subject'], $_POST['message'], $headers, $attachments ); 
+    
+    
+        break;
+    default:
+    
 $table    = (isset($_POST['table'])) ? $_POST['table'] : null;
 $name     = (isset($_POST['name'])) ? $_POST['name'] : null;
 $details  = (isset($_POST['details'])) ? $_POST['details'] : null;
@@ -31,8 +41,7 @@ if ($details && !json_decode($details)) {
     exit;
 }
 
-
-// Returns id of insert row:
-echo popshop_insert_event($table, $name, $details);
-
-
+    	// Returns id of insert row:
+        echo popshop_insert_event($table, $name, $details);
+        break;
+}

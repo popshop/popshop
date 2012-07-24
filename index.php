@@ -171,6 +171,8 @@ if (!popshop_on_facebook()) {
     
     <div id="thankyouform" class="cf formpage" style="display:none;">
         
+        <div id="thankyoumessage">
+        
         <?php echo popshop_get_option('thankyou_message') ?>
         
         <div>Order ID: <code id="thankyou_order_id">n/a</code></div>
@@ -193,6 +195,8 @@ if (!popshop_on_facebook()) {
                 </div>
             </div>
         <?php endif; ?>
+        
+        </div>
         
     </div>
     

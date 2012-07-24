@@ -205,6 +205,20 @@ jQuery(document).ready(function($){
                         $("#orderform").hide();
                         $("#thankyouform").show();
                         
+                        // Send confirmation version of thank you message
+                        
+                        if (Popshop.product_type == 'physical') { 
+                        
+                        $.post($('#ajax_url').text(), { 
+                        	'action' : 'confirmation_email', 
+                        	'email' : $('input[name=email]').val(), 
+                        	'subject' : 'Confirmation email from PopShop', 
+                        	'message' : $("#thankyoumessage").html() 
+                        
+                        }   
+	                       
+	                    });
+                        
                         if ($("#file_to_download").text()) { 
                         
                         parent.window.location = $("#file_to_download").text();
