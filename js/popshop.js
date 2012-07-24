@@ -214,10 +214,10 @@ jQuery(document).ready(function($){
                         	'email' : $('input[name=email]').val(), 
                         	'subject' : 'Confirmation email from PopShop', 
                         	'message' : $("#thankyoumessage").html() 
-                        
-                        }   
-	                       
+                          
 	                    });
+	                    
+	                    }
                         
                         if ($("#file_to_download").text()) { 
                         
