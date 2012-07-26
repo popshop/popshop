@@ -19,8 +19,12 @@ switch ($_POST['action']) {
     $message .= '<div style="background-color:#E7EBF2;margin:20px;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;">';
     
     $message .= '<div style="background:white;border:1px solid #C4CDE0;border-bottom-width:2px;border-radius:3px;padding:20px;margin:auto;">';
+    
+    $message .= '<h2 style="margin: 0 0 10px 0;">'.$_POST['title'].'</h2>';
         
-    $message .= $_POST['message'];
+    $message .= '<p>'.$_POST['message'].'</p>';
+    
+    $message .= '<p>'.$_POST['order_id'].'</p>';
     
     if ($_POST['link_url'] != '') { $message .= '<p><a href="'.$_POST['link_url'].'">Download Now</a></p>'; }
     

@@ -175,9 +175,9 @@ if (!popshop_on_facebook()) {
         
         <?php echo popshop_get_option('thankyou_message') ?>
         
-        <div>Order ID: <code id="thankyou_order_id">n/a</code></div>
-        
         </div>
+        
+        <div id="orderid">Order ID: <span id="thankyou_order_id">n/a</span></div>
         
         <?php if(popshop_get_option('product_type') == "file"): ?>
             <div class="callToAction">
