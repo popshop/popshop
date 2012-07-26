@@ -13,7 +13,19 @@ switch ($_POST['action']) {
     
     $headers = 'From: ' . get_bloginfo('name') . ' <'.get_settings('admin_email') . '>' . "\r\n";
     add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
-    wp_mail( $_POST['email'], $_POST['subject'], $_POST['message'], $headers, $attachments ); 
+    
+    $message = '<body style="background-color:background-color:#E7EBF2;margin:20px;">';
+    
+    $message .= '<div style="background:white;border:1px solid #C4CDE0;border-bottom-width:2px;border-radius:3px;padding:20px;margin:auto;">';
+        
+    $message .= $_POST['message'];
+    
+    $message .= '</div>';
+    
+    $message .= '</body>';
+    
+    
+    wp_mail( $_POST['email'], $_POST['subject'], $message, $headers, $attachments ); 
     
     
         break;
