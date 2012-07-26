@@ -207,12 +207,12 @@ jQuery(document).ready(function($){
                         
                         // Send confirmation version of thank you message
                         
-                        if ( $('input[name=email]').val() ) { 
-                        
+                        if ( ($('#email_confirmation').text() == 1) && ($('input[name=email]').val()) ) { 
+                       
                         $.post($('#ajax_url').text(), { 
                         	'action' : 'confirmation_email', 
                         	'email' : $('input[name=email]').val(), 
-                        	'subject' : 'Confirmation email from PopShop', 
+                        	'subject' : $('#email_confirmation_subject').text(), 
                         	'message' : $("#thankyoumessage").html() 
                           
 	                    });

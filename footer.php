@@ -19,6 +19,8 @@
     <?php if(popshop_on_facebook()): ?>
         <span id="facebook_page"><?php echo popshop_on_facebook() ?></span>
     <?php endif; ?>
+    <span id="email_confirmation"><?php echo popshop_get_option('email_confirmation') ?></span>
+    <span id="email_confirmation_subject">Confirmation email from <?php echo popshop_get_option('header') ?></span>
 </div>
 
 
