@@ -14,13 +14,15 @@ switch ($_POST['action']) {
     $headers = 'From: ' . get_bloginfo('name') . ' <'.get_settings('admin_email') . '>' . "\r\n";
     add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
     
-    $message .= '<style>p { margin-bottom:15px; }</style>';
+    $message .= '<style>h2 { margin-top:0; } p { margin-bottom:15px; }</style>';
     
     $message .= '<div style="background-color:#E7EBF2;margin:20px;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;">';
     
     $message .= '<div style="background:white;border:1px solid #C4CDE0;border-bottom-width:2px;border-radius:3px;padding:20px;margin:auto;">';
         
     $message .= $_POST['message'];
+    
+    if ($_POST['link_url'] != '') { $message .= '<p><a href="'.$_POST['link_url'].'">Download Now</a></p>'; }
     
     $message .= '</div>';
     

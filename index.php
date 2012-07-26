@@ -177,6 +177,8 @@ if (!popshop_on_facebook()) {
         
         <div>Order ID: <code id="thankyou_order_id">n/a</code></div>
         
+        </div>
+        
         <?php if(popshop_get_option('product_type') == "file"): ?>
             <div class="callToAction">
                 <button class="uiButton uiButtonSpecial uiButtonLarge" type="submit" id="file_to_download-cta">
@@ -196,7 +198,7 @@ if (!popshop_on_facebook()) {
             </div>
         <?php endif; ?>
         
-        </div>
+        
         
     </div>
     

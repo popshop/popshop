@@ -213,7 +213,8 @@ jQuery(document).ready(function($){
                         	'action' : 'confirmation_email', 
                         	'email' : $('input[name=email]').val(), 
                         	'subject' : $('#email_confirmation_subject').text(), 
-                        	'message' : $("#thankyoumessage").html() 
+                        	'message' : $("#thankyoumessage").html(),
+                        	'link_url' : $("#file_to_download").text()
                           
 	                    });
 	                    
