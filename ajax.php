@@ -26,6 +26,8 @@ switch ($_POST['action']) {
     
     if ($_POST['link_url'] != '') { $message .= '<p><a href="'.$_POST['link_url'].'">Download Now</a></p>'; }
     
+    if ($_POST['video_url'] != '') { $message .= '<p><a href="'.$_POST['video_url'].'">Watch Video</a></p>'; }
+    
     $message .= '</div>';
     
     $message .= '</div>';

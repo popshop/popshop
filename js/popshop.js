@@ -215,7 +215,8 @@ jQuery(document).ready(function($){
                         	'subject' : $('#email_confirmation_subject').text(), 
                         	'message' : $("#thankyoumessage").html(),
                         	'order_id' : $("#orderid").text(),
-                        	'link_url' : $("#file_to_download").text()
+                        	'link_url' : $("#file_to_download").text(),
+                        	'video_url' : $("#video_url").text()
                           
 	                    });
 	                    

@@ -188,7 +188,7 @@ if (!popshop_on_facebook()) {
         <?php endif; ?>
         
         <?php if(popshop_get_option('product_type') == "video"): ?>
-            <div>Direct URL to save for future access: <code>http://youtu.be/<?php echo popshop_get_option('video_id') ?></code></div>
+            <div id="video_url">Direct URL to save for future access: <code>http://youtu.be/<?php echo popshop_get_option('video_id') ?></code></div>
             <div class="streaming">
                 <div class="media-container">
                     <div class="media">
