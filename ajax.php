@@ -14,7 +14,9 @@ switch ($_POST['action']) {
     $headers = 'From: ' . get_bloginfo('name') . ' <'.get_settings('admin_email') . '>' . "\r\n";
     add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
     
-    $message = '<body style="background-color:background-color:#E7EBF2;margin:20px;">';
+    $message .= '<style>p { margin-bottom:15px; }</style>';
+    
+    $message .= '<body style="background-color:#E7EBF2;margin:20px;font-family: "lucida grande",tahoma,verdana,arial,sans-serif;">';
     
     $message .= '<div style="background:white;border:1px solid #C4CDE0;border-bottom-width:2px;border-radius:3px;padding:20px;margin:auto;">';
         
