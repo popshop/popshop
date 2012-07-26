@@ -207,7 +207,7 @@ jQuery(document).ready(function($){
                         
                         // Send confirmation version of thank you message
                         
-                        if (Popshop.product_type == 'physical') { 
+                        if ( $('input[name=email]').val() ) { 
                         
                         $.post($('#ajax_url').text(), { 
                         	'action' : 'confirmation_email', 
