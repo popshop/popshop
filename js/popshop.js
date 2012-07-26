@@ -213,7 +213,6 @@ jQuery(document).ready(function($){
                         	'action' : 'confirmation_email', 
                         	'email' : $('input[name=email]').val(), 
                         	'subject' : $('#email_confirmation_subject').text(), 
-                        	'title' : $("#thankyouform h2").text(),
                         	'message' : $("#thankyoumessage").html(),
                         	'order_id' : $("#orderid").text(),
                         	'link_url' : $("#file_to_download").text()
@@ -224,7 +223,7 @@ jQuery(document).ready(function($){
                         
                         if ($("#file_to_download").text()) { 
                         
-                        parent.window.open($("#file_to_download").text(), "_newtab");
+                        // parent.window.location = $("#file_to_download").text();
                         
                         }
                         

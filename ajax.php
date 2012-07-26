@@ -20,8 +20,6 @@ switch ($_POST['action']) {
     
     $message .= '<div style="background:white;border:1px solid #C4CDE0;border-bottom-width:2px;border-radius:3px;padding:20px;margin:auto;">';
     
-    $message .= '<h2 style="margin: 0 0 10px 0;">'.$_POST['title'].'</h2>';
-        
     $message .= '<p>'.$_POST['message'].'</p>';
     
     $message .= '<p>'.$_POST['order_id'].'</p>';
