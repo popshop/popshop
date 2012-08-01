@@ -191,8 +191,7 @@ function optionsframework_options() {
                        "type" => "textarea");
                        
 
-<<<<<<< HEAD
-=======
+
     $options[] = array("name" => "Email Confirmation",
                        "desc" => "Send a copy of the confirmation screen to the email address the user provides (only works with Free for a Contact and Physical Product samples)",
                        "id" => "email_confirmation",
@@ -200,8 +199,7 @@ function optionsframework_options() {
                        "type" => "radio",
                        "options" => array('1' => 'Yes', 
                                           '0' => 'No'));                     
-
->>>>>>> e6765d48d59e5ac79fbb82fb73a319ee99f2d127
+          
                        
     $options[] = array("name" => "Item Label Text",
                        "desc" => "Change the 'Item' label at the top of the order form",
