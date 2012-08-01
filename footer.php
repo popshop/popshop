@@ -15,10 +15,14 @@
     <span id="payment_type"><?php echo popshop_get_option('payment_type') ?></span>
     <span id="product_type"><?php echo popshop_get_option('product_type') ?></span>
     <span id="external_url"><?php echo popshop_get_option('external_url') ?></span>
+    <?php if (popshop_get_option('product_type') == 'file') { ?>
     <span id="file_to_download"><?php echo popshop_get_option('file_to_download') ?></span>
+    <?php } ?>
     <?php if(popshop_on_facebook()): ?>
         <span id="facebook_page"><?php echo popshop_on_facebook() ?></span>
     <?php endif; ?>
+    <span id="email_confirmation"><?php echo popshop_get_option('email_confirmation') ?></span>
+    <span id="email_confirmation_subject">Confirmation email from <?php echo popshop_get_option('header') ?></span>
 </div>
 
 

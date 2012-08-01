@@ -171,9 +171,13 @@ if (!popshop_on_facebook()) {
     
     <div id="thankyouform" class="cf formpage" style="display:none;">
         
+        <div id="thankyoumessage">
+        
         <?php echo popshop_get_option('thankyou_message') ?>
         
-        <div>Order ID: <code id="thankyou_order_id">n/a</code></div>
+        </div>
+        
+        <div id="orderid">Order ID: <span id="thankyou_order_id">n/a</span></div>
         
         <?php if(popshop_get_option('product_type') == "file"): ?>
             <div class="callToAction">
@@ -184,7 +188,7 @@ if (!popshop_on_facebook()) {
         <?php endif; ?>
         
         <?php if(popshop_get_option('product_type') == "video"): ?>
-            <div>Direct URL to save for future access: <code>http://youtu.be/<?php echo popshop_get_option('video_id') ?></code></div>
+            <div>Direct URL to save for future access: <span id="video_url">http://youtu.be/<?php echo popshop_get_option('video_id') ?></span></div>
             <div class="streaming">
                 <div class="media-container">
                     <div class="media">
@@ -193,6 +197,8 @@ if (!popshop_on_facebook()) {
                 </div>
             </div>
         <?php endif; ?>
+        
+        
         
     </div>
     

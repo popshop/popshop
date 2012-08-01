@@ -205,9 +205,32 @@ jQuery(document).ready(function($){
                         $("#orderform").hide();
                         $("#thankyouform").show();
                         
+<<<<<<< HEAD
                         if ($("#file_to_download").text()) { 
                         
                         parent.window.location = $("#file_to_download").text();
+=======
+                        // Send confirmation version of thank you message
+                        
+                        if ( ($('#email_confirmation').text() == 1) && ($('input[name=email]').val()) ) { 
+                       
+                        $.post($('#ajax_url').text(), { 
+                        	'action' : 'confirmation_email', 
+                        	'email' : $('input[name=email]').val(), 
+                        	'subject' : $('#email_confirmation_subject').text(), 
+                        	'message' : $("#thankyoumessage").html(),
+                        	'order_id' : $("#orderid").text(),
+                        	'link_url' : $("#file_to_download").text(),
+                        	'video_url' : $("#video_url").text()
+                          
+	                    });
+	                    
+	                    }
+                        
+                        if ($("#file_to_download").text()) { 
+                        
+                        // parent.window.location = $("#file_to_download").text();
+>>>>>>> e6765d48d59e5ac79fbb82fb73a319ee99f2d127
                         
                         }
                         
