@@ -153,7 +153,6 @@ text-decoration:underline;
 
 #cover {
 margin-top:8px;
-height:318px;
 }
 
 #fbTimelineHeadline {
@@ -661,4 +660,4 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
 /* @todo: Also try Obox Social Commerce (more Facebook-like) */
 
 /* @Popshop: "crop" slider images if they're larger than what we want: */
-.flexslider .slides > li { height:315px; overflow:hidden; }
+.flexslider .slides > li { overflow:hidden; }
