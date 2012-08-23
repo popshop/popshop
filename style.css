@@ -670,6 +670,13 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
   .profilePicThumb {
 	  display:none;
   }
-
+  
+  span.price {
+	  display:none;
+  }
+  
+  span.price-label {
+	  display:none;
+  }
   
 }  
