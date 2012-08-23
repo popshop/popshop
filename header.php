@@ -12,7 +12,7 @@
 </style>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.gif" />
 
-<!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta property="og:title" content="<?php echo popshop_get_option('header') ?>" />
 <meta property="og:type" content="website" />

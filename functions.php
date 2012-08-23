@@ -109,7 +109,7 @@ function popshop_activation() {
         
         // Hack, as Wordpress currently offers no activation hook for themes (unlike for plugins)
         // @see http://wordpress.stackexchange.com/questions/40530/whats-the-best-action-to-use-when-you-want-to-do-something-only-once-per-theme
-        
+                
         if (isset($_GET['activated']) && get_current_screen()->id == 'themes') {
             // @see http://wordpress.stackexchange.com/questions/44625/in-the-wordpress-admin-how-can-i-find-out-which-page-themes-php-widgets-php
             
@@ -178,15 +178,7 @@ function popshop_activation() {
                     set_theme_mod('nav_menu_locations', $locations);
                 }
             }
-            
-            
-            
-            // SCHEDULE POPSHOP CRON
-            
-            if (!wp_next_scheduled('popshop_daily_cron')) {
-                wp_schedule_event(current_time('timestamp'), 'daily', 'popshop_daily_cron');
-            }
-            
+               
             // CHECK SCHEMA
             popshop_check_schema();
             
@@ -197,6 +189,20 @@ function popshop_activation() {
 }
 add_action('admin_head', 'popshop_activation');
 
+
+function popshop_monitoring() { 
+
+// SCHEDULE POPSHOP CRON
+            
+if (!wp_next_scheduled('popshop_daily_cron')) {
+wp_schedule_event(current_time('timestamp'), 'daily', 'popshop_daily_cron');
+} else { 
+	
+}
+		
+}
+
+add_action('wp_footer', 'popshop_monitoring');
 
 
 // HOOK POPSHOP CRON
