@@ -222,7 +222,6 @@ margin-top:28px;
 
 .callToActionText {
 font-size:15px;
-display:inline-block;
 }
 
 .navmenu {
@@ -398,7 +397,7 @@ background-color:#FFFFFF;
 border:1px solid #C4CDE0;
 border-radius:2px;
 padding:10px 15px;
-font-size:15px;
+font-size:13px;
 }
 
 .productname-label {
