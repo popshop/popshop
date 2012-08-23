@@ -397,7 +397,7 @@ background-color:#FFFFFF;
 border:1px solid #C4CDE0;
 border-radius:2px;
 padding:10px 15px;
-font-size:13px;
+font-size:15px;
 }
 
 .productname-label {
@@ -673,6 +673,14 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
   }
   
   .profilePicThumb {
+	  display:none;
+  }
+  
+  span.price {
+	  display:none;
+  }
+  
+  span.price-label {
 	  display:none;
   }
   
