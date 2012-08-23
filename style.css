@@ -222,6 +222,7 @@ margin-top:28px;
 
 .callToActionText {
 font-size:15px;
+display:inline-block;
 }
 
 .navmenu {
@@ -661,3 +662,19 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endCol
 
 /* @Popshop: "crop" slider images if they're larger than what we want: */
 .flexslider .slides > li { overflow:hidden; }
+
+
+/* Responsive */
+
+@media all and (max-width: 768px) { 
+  
+  .callToAction {
+  	float:none;
+  	margin: 15px 0 0 0;
+  }
+  
+  .profilePicThumb {
+	  display:none;
+  }
+  
+}  

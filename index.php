@@ -113,14 +113,14 @@ if (!popshop_on_facebook()) {
     </div>
     
     <div class="callToActionWrapper cf" id="main-callToActionWrapper">
+        <span class="callToActionText">
+            <?php echo popshop_get_option('main_cta_text') ?>
+        </span>
         <div class="callToAction">
             <button class="uiButton uiButtonSpecial uiButtonLarge" id="main-cta">
                 <span class="uiButtonText"><?php echo popshop_get_option('main_cta_button') ?></span>
             </button>
         </div>
-        <span class="callToActionText">
-            <?php echo popshop_get_option('main_cta_text') ?>
-        </span>
     </div>
     
     <div id="orderform" class="cf formpage" style="display:none">
