@@ -225,6 +225,7 @@ jQuery(document).ready(function($){
                         if ($("#file_to_download").text()) { 
                         
                         // parent.window.location = $("#file_to_download").text();
+
                         
                         }
                         
