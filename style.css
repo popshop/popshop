@@ -513,7 +513,6 @@ color: #999999;
 /* Container, Standard case: */
 
 #container {
-overflow:hidden;
 width:810px;
 margin:auto;
 margin-top:120px;
