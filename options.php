@@ -199,6 +199,22 @@ function optionsframework_options() {
                        "type" => "radio",
                        "options" => array('1' => 'Yes', 
                                           '0' => 'No'));                     
+    
+    
+     $options[] = array("name" => "One Per Customer",
+                       "desc" => "Limit orders to one per customer (Popshop will check for an existing order from the email address the customer offers)",
+                       "id" => "one_per_customer",
+                       "std" => "0",
+                       "type" => "radio",
+                       "options" => array('1' => 'Yes', 
+                                          '0' => 'No'));    
+     
+     
+     $options[] = array("name" => "One Per Customer Alert Message",
+                       "desc" => "Enter a custom error message to display when a customer attempts to order more than one item",
+                       "id" => "one_per_customer_alert",
+                       "std" => "<h2>Sorry!</h2>\n\nThis offer is limited to one per customer.",
+                       "type" => "textarea");
           
                        
     $options[] = array("name" => "Item Label Text",

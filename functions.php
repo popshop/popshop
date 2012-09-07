@@ -25,6 +25,9 @@ function popshop_scripts() {
     wp_register_script('popshop_script_polyfiller', get_template_directory_uri() . '/js/polyfiller.js', array('jquery'));
     wp_enqueue_script('popshop_script_polyfiller');
     
+    wp_register_script('jquery_cookie', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'));
+    wp_enqueue_script('jquery_cookie');
+    
     wp_register_script('popshop', get_template_directory_uri() . '/js/popshop.js', array('jquery'));
     wp_enqueue_script('popshop');
 }

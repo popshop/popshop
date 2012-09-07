@@ -21,11 +21,21 @@
     <?php if(popshop_on_facebook()): ?>
         <span id="facebook_page"><?php echo popshop_on_facebook() ?></span>
     <?php endif; ?>
+    <span id="one_per_customer"><?php echo popshop_get_option('one_per_customer') ?></span>
+    <span id="one_per_customer_alert"><?php echo popshop_get_option('one_per_customer_alert') ?></span>
     <span id="email_confirmation"><?php echo popshop_get_option('email_confirmation') ?></span>
     <span id="email_confirmation_subject">Confirmation email from <?php echo popshop_get_option('header') ?></span>
 </div>
 
+<?php if ($_COOKIE['popshop_shared'] == true) { ?>
 
+<script>
+
+jQuery(document).ready(function() { Popshop.shared = true; });
+
+</script>
+
+<?php } ?>
 
 </body>
 </html>

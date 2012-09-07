@@ -51,7 +51,36 @@ jQuery(document).ready(function($){
             Popshop.insertObject('intent', name, details, null);
         },
         insertOrder: function(details, success) {
-            Popshop.insertObject('order', 'order', details, success);
+        
+        if ( $('#one_per_customer').text() == 1) { // One order per customer
+            
+        $.post($('#ajax_url').text(), { 
+                       'action' : 'check_email_duplicate', 
+                       'email' : $('input[name=email]').val()                          
+	               }, function(data) { 
+	                    
+	               if ((data) == 'true') { 
+	               
+	               	   alert($('#one_per_customer_alert').text());
+	               	   
+	               } else { 
+		               
+		               Popshop.insertObject('order', 'order', details, success);
+		               
+		               $.cookie("popshop_shared", true, { expires: 7 });
+
+	               }
+	                    	                    
+	               });
+	               
+	    } else { 
+		    
+		Popshop.insertObject('order', 'order', details, success);    
+		
+		$.cookie("popshop_shared", true, { expires: 7 });
+		    
+	    }          
+	               
         }
     }
     
@@ -166,8 +195,9 @@ jQuery(document).ready(function($){
         event.preventDefault();
         if (Popshop.paypal_url != null) {
             top.location = Popshop.paypal_url;
-        }
-        else {
+        
+        } else {
+        
             var data = $("#orderform input").serializeObject();
             // Add payment_type to this object:
             data.payment = {type: Popshop.payment_type};

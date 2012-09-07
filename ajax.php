@@ -37,6 +37,25 @@ switch ($_POST['action']) {
     
     
         break;
+    
+    case 'check_email_duplicate':
+    
+    $email_address = $_POST['email'];
+    
+    $orders = $wpdb->get_results( "SELECT details FROM ".$wpdb->prefix."popshop_order" );	
+    	
+    foreach($orders as $order) { 
+	    
+	    $details = json_decode($order->details);
+	    
+	    if ($_POST['email'] == $details->email) { echo 'true'; break; }
+	    
+    }	
+    
+    exit;
+    
+    break;
+        
     default:
     
 $table    = (isset($_POST['table'])) ? $_POST['table'] : null;
