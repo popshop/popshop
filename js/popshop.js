@@ -97,7 +97,9 @@ jQuery(document).ready(function($){
             
             $.supersized({
                 // slide_interval: 3000, transition: 'fade', transition_speed: 1000,
-                slides : [{ image: $("#background_image").text() }]
+                slides : [{ image: $("#background_image").text() }],
+                fit_portrait: 0,
+                fit_landscape: 1
             });
             
             // Resize mesh to cover the whole page even if browser does not support position:fixed (iOS).
